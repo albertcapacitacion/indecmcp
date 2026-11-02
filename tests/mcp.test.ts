@@ -9,10 +9,10 @@ import { latestOutput } from "../src/inflation.js";
 import { unavailableOutput } from "../src/wages.js";
 
 const mockRow = { ...NATIONAL_MONTHLY, periodo: "202609", anio: 2026, mes: 9, valor: 1.9, valor_null: null, observaciones: null };
-async function connection(userId: string | null = "synthetic-client", mode: "auto" | "legacy" = "auto", state = new MemoryState()) {
+async function connection(userId: string | null = "synthetic-client", mode: "auto" | "legacy" = "auto", state = new MemoryState(), injectHost = true) {
   const client = new Client({ name: "synthetic-integration-test", version: "1" }, { versionNegotiation: { mode } });
   const upstream = new IndecClient("SYNTHETIC_SECRET", async url => String(url).includes("indice_salarios") ? new Response("SYNTHETIC_SECRET", { status: 404 }) : Response.json([mockRow], { headers: { "content-range": "0-0/1" } }));
-  const transport = new StreamableHTTPClientTransport(new URL("http://127.0.0.1/mcp"), { fetch: async (url, init) => { const request = new Request(url, init); request.headers.set("host", "127.0.0.1"); return handleRequest(request, { client: upstream, state, userId }, true); } });
+  const transport = new StreamableHTTPClientTransport(new URL("http://127.0.0.1/mcp"), { fetch: async (url, init) => { const request = new Request(url, init); if (injectHost) request.headers.set("host", "127.0.0.1"); return handleRequest(request, { client: upstream, state, userId }, true); } });
   await client.connect(transport); await client.listTools(); return client;
 }
 for (const mode of ["auto", "legacy"] as const) test(`real SDK client transport: ${mode} era, schemas and tool call`, async () => {
@@ -44,4 +44,15 @@ test("client rate limits remain enforced on cached calls", async () => {
 test("origin validation rejects cross-origin browser requests", async () => {
   const response = await handleRequest(new Request("http://127.0.0.1/mcp", { method: "POST", headers: { host: "127.0.0.1", Origin: "https://evil.example" } }), { client: new IndecClient(""), state: new MemoryState(), userId: null }, true);
   assert.equal(response.status, 403);
+});
+test("Sites internal forwarding without Host is accepted only for the approved URL hostname", async () => {
+  const deps = { client: new IndecClient(""), state: new MemoryState(), userId: null };
+  assert.equal((await handleRequest(new Request("http://127.0.0.1/healthz"), deps, true)).status, 200);
+  assert.equal((await handleRequest(new Request("http://evil.example/healthz"), deps, true)).status, 403);
+  assert.equal((await handleRequest(new Request("http://127.0.0.1/healthz", { headers: { host: "evil.example" } }), deps, true)).status, 403);
+});
+test("native request shape without Host preserves the full MCP request body", async () => {
+  const client = await connection("synthetic-client", "auto", new MemoryState(), false);
+  try { const result = await client.callTool({ name: "get_latest_inflation", arguments: {} }); assert(!result.isError); assert.equal(latestOutput.parse(result.structuredContent).value, 1.9); }
+  finally { await client.close(); }
 });

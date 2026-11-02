@@ -9,7 +9,12 @@ const SECURITY_HEADERS = { "Cache-Control": "no-store", "X-Content-Type-Options"
 
 export async function handleRequest(request: Request, deps: Dependencies, local = false, domainChallenge?: string): Promise<Response> {
   const allowed = local ? ["127.0.0.1", "localhost"] : [SITE_HOST];
-  const rejected = hostHeaderValidationResponse(request, allowed) ?? originValidationResponse(request, allowed);
+  const url = new URL(request.url);
+  if (!allowed.includes(url.hostname)) return new Response("Forbidden host", { status: 403 });
+  // Sites' internal MCP forwarding omits Host. Its Request URL still carries
+  // the Site origin; validate that explicitly, then use it for the SDK guard.
+  const guarded = request.headers.has("host") ? request : new Request(url, { headers: new Headers([...request.headers, ["host", url.host]]) });
+  const rejected = hostHeaderValidationResponse(guarded, allowed) ?? originValidationResponse(request, allowed);
   if (rejected) return rejected;
   const path = new URL(request.url).pathname;
   if (path === "/.well-known/openai-apps-challenge" && domainChallenge && /^[^\r\n]{1,2048}$/.test(domainChallenge)) return new Response(domainChallenge, { headers: { ...SECURITY_HEADERS, "Content-Type": "text/plain; charset=utf-8" } });
