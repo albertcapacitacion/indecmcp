@@ -44,10 +44,11 @@ export class IndecClient {
     try {
       const response = await this.fetcher(url, {
         headers: { Authorization: `Bearer ${this.token}`, Accept: "application/json", Prefer: "count=exact" },
-        redirect: "error", signal
+        redirect: "manual", signal
       });
       if (![200, 206].includes(response.status)) {
         await response.body?.cancel();
+        if (response.status >= 300 && response.status < 400) throw new ServiceError("UPSTREAM_REDIRECT", "INDEC returned a redirect; the server will not forward its credential to another location.");
         if ([401, 403].includes(response.status)) throw new ServiceError("UPSTREAM_AUTH_ERROR", "INDEC rejected the server credential.");
         if (response.status === 404) throw new ServiceError("UPSTREAM_NOT_FOUND", "The dataset endpoint documented in the supplied INDEC specification is unavailable (HTTP 404).");
         if (response.status === 429) throw new ServiceError("UPSTREAM_RATE_LIMITED", "INDEC is temporarily rate limited.", true);

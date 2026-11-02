@@ -39,8 +39,14 @@ test("expired cache refreshes and does not serve stale data on failure", async (
 });
 test("upstream errors are sanitized and redirects are prohibited", async () => {
   let checked = false;
-  const client = new IndecClient("test-secret", async (url, options) => { assert.equal(new URL(String(url)).hostname, "api.indec.gob.ar"); assert.equal(options?.redirect, "error"); checked = true; return new Response("test-secret", { status: 401 }); });
+  const client = new IndecClient("test-secret", async (url, options) => { assert.equal(new URL(String(url)).hostname, "api.indec.gob.ar"); assert.equal(options?.redirect, "manual"); checked = true; return new Response("test-secret", { status: 401 }); });
   await assert.rejects(() => client.page("ipc_nacional", ipcQuery(NATIONAL_MONTHLY, 2)), error => error instanceof Error && !error.message.includes("test-secret")); assert(checked);
+});
+test("redirects are rejected without forwarding credentials or following Location", async () => {
+  let calls = 0;
+  const client = new IndecClient("test-secret", async (url, options) => { calls++; assert.equal(new URL(String(url)).hostname, "api.indec.gob.ar"); assert.equal(options?.redirect, "manual"); return new Response("", { status: 302, headers: { Location: "https://evil.example/" } }); });
+  await assert.rejects(() => client.page("ipc_nacional", ipcQuery(NATIONAL_MONTHLY, 2)), error => error instanceof Error && error.message.includes("redirect"));
+  assert.equal(calls, 1);
 });
 test("operator network diagnostics redact credentials and URLs", () => {
   const token = "TEST_PRIVATE_SECRET";
