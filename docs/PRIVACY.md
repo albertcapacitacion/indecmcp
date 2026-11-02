@@ -8,6 +8,6 @@ The service uses the Site-scoped authenticated user ID in request memory and sto
 
 Official observations and their source/retrieval metadata are cached for one hour. Expired cache entries are removed during subsequent tool traffic. No INDEC credentials are stored in the cache. The upstream receives only statistical queries and the server's INDEC credential; it does not receive the ChatGPT user ID or chat history.
 
-Application logs contain fixed events, tool names and sanitized error codes, not request bodies, identities, tokens or raw upstream errors. Sites/OpenAI infrastructure may process connection metadata under its own applicable terms; the publisher must confirm those terms and retention obligations before public launch.
+Application logs contain fixed events, tool names, sanitized error codes and redacted network exception reasons, not request bodies, identities, tokens or upstream response bodies. Network diagnostics remove credential values, Bearer values, JWTs and URLs. Sites/OpenAI infrastructure may process connection metadata under its own applicable terms; the publisher must confirm those terms and retention obligations before public launch.
 
 This draft must be completed, reviewed and published under the verified publisher's identity before directory submission.

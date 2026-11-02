@@ -21,8 +21,17 @@ export const DATASETS = [IPC_PATH, "indice_salarios", "valorizacion_canastas_cba
 export type Dataset = typeof DATASETS[number];
 
 export interface Page { rows: unknown[]; source: string; retrievedAt: string; total: number; }
+export function networkDiagnostic(error: unknown, token: string) {
+  const name = error instanceof Error ? error.name : "UnknownError";
+  const message = error instanceof Error ? error.message : "Unknown network failure";
+  const redacted = message.split(token).join("[redacted]")
+    .replace(/Bearer\s+\S+/gi, "Bearer [redacted]")
+    .replace(/eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+/g, "[redacted]")
+    .replace(/https?:\/\/\S+/g, "[url]");
+  return { event: "upstream_network_failure", error_name: /^[A-Za-z0-9_]{1,60}$/.test(name) ? name : "Error", reason: redacted.slice(0, 250) };
+}
 export class IndecClient {
-  constructor(private readonly token: string, private readonly fetcher: typeof fetch = fetch) {}
+  constructor(private readonly token: string, private readonly fetcher: typeof fetch = (input, init) => globalThis.fetch(input, init)) {}
 
   async page(path: Dataset, query: URLSearchParams): Promise<Page> {
     if (!this.token.trim()) throw new ServiceError("UPSTREAM_NOT_CONFIGURED", "The INDEC service credential has not been configured.");
@@ -57,6 +66,7 @@ export class IndecClient {
       return { rows: data, source: url.href, retrievedAt: new Date().toISOString(), total: Number(totalText) };
     } catch (error) {
       if (error instanceof ServiceError) throw error;
+      console.error(JSON.stringify(networkDiagnostic(error, this.token)));
       throw new ServiceError(signal.aborted ? "UPSTREAM_TIMEOUT" : "UPSTREAM_UNAVAILABLE", "The INDEC request could not be completed.", true);
     }
   }

@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { IndecClient, ipcQuery, parseRows } from "../src/indec.js";
+import { IndecClient, ipcQuery, parseRows, networkDiagnostic } from "../src/indec.js";
 import { latestInflation, NATIONAL_MONTHLY } from "../src/inflation.js";
 import { MemoryState } from "../src/state.js";
 import { getSeries, seriesInput } from "../src/series.js";
@@ -41,6 +41,21 @@ test("upstream errors are sanitized and redirects are prohibited", async () => {
   let checked = false;
   const client = new IndecClient("test-secret", async (url, options) => { assert.equal(new URL(String(url)).hostname, "api.indec.gob.ar"); assert.equal(options?.redirect, "error"); checked = true; return new Response("test-secret", { status: 401 }); });
   await assert.rejects(() => client.page("ipc_nacional", ipcQuery(NATIONAL_MONTHLY, 2)), error => error instanceof Error && !error.message.includes("test-secret")); assert(checked);
+});
+test("operator network diagnostics redact credentials and URLs", () => {
+  const token = "TEST_PRIVATE_SECRET";
+  const diagnostic = networkDiagnostic(new TypeError(`Cannot fetch https://api.indec.gob.ar/v1?key=${token} Authorization: Bearer ${token}`), token);
+  assert(!JSON.stringify(diagnostic).includes(token)); assert(!JSON.stringify(diagnostic).includes("https://"));
+});
+test("default fetch retains the native global receiver in hosted runtimes", async () => {
+  const previous = globalThis.fetch;
+  try {
+    globalThis.fetch = async function(this: unknown) {
+      assert.equal(this, globalThis, "Native fetch must not receive the IndecClient instance as this.");
+      return Response.json([row()], { headers: { "content-range": "0-0/1" } });
+    };
+    assert.equal((await new IndecClient("test-only-token").page("ipc_nacional", ipcQuery(NATIONAL_MONTHLY, 2))).rows.length, 1);
+  } finally { globalThis.fetch = previous; }
 });
 test("schema mismatch and oversized response are rejected", async () => {
   assert.throws(() => parseRows([{ ...row(), valor: "1.9" }]));
