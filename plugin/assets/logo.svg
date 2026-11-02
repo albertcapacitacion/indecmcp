@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="INDEC MCP independent statistics service">
+  <rect width="512" height="512" rx="48" fill="#12364b"/>
+  <path d="M151 88v174h210" fill="none" stroke="#e8f4fa" stroke-width="12" stroke-linecap="round"/>
+  <rect x="183" y="187" width="34" height="47" rx="5" fill="#79c4e5"/>
+  <rect x="242" y="147" width="34" height="87" rx="5" fill="#79c4e5"/>
+  <rect x="301" y="103" width="34" height="131" rx="5" fill="#e8f4fa"/>
+  <text x="256" y="353" text-anchor="middle" font-family="Arial, sans-serif" font-size="65" font-weight="700" fill="#ffffff">INDEC</text>
+  <text x="256" y="419" text-anchor="middle" font-family="Arial, sans-serif" font-size="49" font-weight="700" letter-spacing="9" fill="#79c4e5">MCP</text>
+</svg>

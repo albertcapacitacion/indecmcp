@@ -1,0 +1,19 @@
+import { readFile, writeFile } from "node:fs/promises";
+import { createHash } from "node:crypto";
+const original = await readFile(new URL("../docs/api-1.json", import.meta.url));
+const spec = JSON.parse(original.toString("utf8"));
+let text = `# INDEC API mapping\n\nGenerated from docs/api-1.json, OpenAPI ${spec.openapi}, ${spec.info.title} ${spec.info.version}.\n\nSpecification SHA-256: ${createHash("sha256").update(original).digest("hex")}\n\nBase URL: ${spec.servers[0].url}\n\nAuthentication: server-side Bearer JWT via INDEC_API_TOKEN. No token belongs in client configuration.\n\n## Common behavior\n\n- Maximum upstream page: 1000 rows, including if a larger limit is requested.\n- Stable pagination requires the full documented key in order. Use limit/offset.\n- Prefer: count=exact supplies Content-Range. Both 200 and 206 are successful.\n- Filter values use PostgREST operators despite some query schemas being numeric.\n- Published variations may differ from ratios of rounded API indices. Do not add monthly percentages.\n- Missing fields are not made required by the supplied schema. Runtime adapters require the identifying fields needed for safe interpretation.\n- Live observation on 2026-11-02: additional *_null fields carry statistical signs but are absent from this specification. Adapters preserve these fields and all other observation fields.\n\n`;
+for (const [path, item] of Object.entries(spec.paths)) {
+  const operation = item.get; if (!operation) continue;
+  const reference = operation.responses["200"].content["application/json"].schema.items.$ref;
+  const schema = spec.components.schemas[reference.split("/").at(-1)];
+  text += `## GET ${path}\n\n${operation.summary}\n\n${schema.description ?? ""}\n\nOperation: ${operation.operationId}. Schema: ${reference}.\n\n${operation.parameters.find(p => p.name === "order")?.description ?? ""}\n\n| Field | Type | Description |\n| --- | --- | --- |\n`;
+  for (const [name, field] of Object.entries(schema.properties)) {
+    const type = field.type ?? field.anyOf?.map(value => value.type).join(" or ") ?? "unspecified";
+    text += `| ${name} | ${type} | ${(field.description ?? "").replaceAll("\n", " ").replaceAll("|", "\\|")} |\n`;
+  }
+  text += `\nQuery/header parameters: ${operation.parameters.map(p => p.name).join(", ")}.\n\n`;
+}
+text += `## V0 runtime mappings\n\n| Tool | Endpoint | Live state on 2026-11-02 |\n| --- | --- | --- |\n| get_latest_inflation | /ipc_nacional | Verified national headline v_m |\n| get_inflation_history | /ipc_nacional | Verified national Indice, v_m, v_ia, v_acum |\n| get_wage_growth | /indice_salarios | HTTP 404; numerical results disabled |\n| compare_wages_inflation | /indice_salarios and /ipc_nacional | Blocked by wage endpoint |\n| get_basic_basket | /valorizacion_canastas_cba_cbt | Verified CBA/CBT, GBA, per adult equivalent |\n| get_series | Closed catalog in src/catalog.ts | IPC, baskets, EMAE and EPH unemployment verified |\n\nThe presence of an endpoint in this document does not expose it through MCP. Only the closed runtime catalog is callable. Publication timestamps and archival vintages are not present in the relevant observation schemas.\n`;
+await writeFile(new URL("../docs/API_MAPPING.md", import.meta.url), text);
+console.log("Generated docs/API_MAPPING.md from the original specification.");

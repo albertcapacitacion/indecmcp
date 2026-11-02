@@ -1,0 +1,35 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "indec-mcp",
+  "version": "0.1.0",
+  "description": "Retrieve traceable official Argentine economic statistics through INDEC MCP.",
+  "author": { "name": "PUBLISHER_NAME_PENDING", "email": "PUBLISHER_EMAIL_PENDING" },
+  "homepage": "https://indec-mcp.albertcapacitaciondi.chatgpt.site",
+  "repository": "https://github.com/albertcapacitacion/indecmcp",
+  "license": "Apache-2.0",
+  "keywords": ["Argentina", "INDEC", "inflation", "statistics", "economics"],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "INDEC MCP",
+        "shortDescription": "Official Argentina statistics",
+        "longDescription": "Retrieve official Argentine inflation, Gran Buenos Aires basic basket costs, national economic activity and EPH unemployment statistics with reference periods, coverage, statistical flags and source links. Independent service; not an INDEC product or endorsement. Wage growth and wage/inflation comparison are currently unavailable because the documented INDEC wage endpoint returns HTTP 404. Historical publication vintages are not reconstructed.",
+        "developerName": "PUBLISHER_NAME_PENDING",
+        "category": "Productivity",
+        "capabilities": ["Read official statistics", "Inspect statistical series"],
+        "websiteURL": "https://indec-mcp.albertcapacitaciondi.chatgpt.site",
+        "supportURL": "https://indec-mcp.albertcapacitaciondi.chatgpt.site/support",
+        "privacyPolicyURL": "https://indec-mcp.albertcapacitaciondi.chatgpt.site/privacy",
+        "termsOfServiceURL": "https://indec-mcp.albertcapacitaciondi.chatgpt.site/terms",
+        "defaultPrompt": ["What is Argentina's latest national monthly inflation?", "How much is the basic total basket per adult equivalent in Gran Buenos Aires?", "How has unemployment changed across the latest available quarters?"],
+        "composerIcon": "./assets/icon.svg",
+        "logo": "./assets/logo.svg"
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "Initial review draft. Inflation, baskets, EMAE and unemployment have live verified mappings. Wage tools remain unavailable.",
+        "translations": { "es-AR": { "subtitle": "Estadísticas de Argentina", "description": "Estadísticas oficiales de Argentina, consultables desde ChatGPT y Codex. Servicio independiente basado en datos oficiales del INDEC, con períodos de referencia, cobertura y fuentes. Los salarios y su comparación con la inflación están temporalmente indisponibles porque el endpoint documentado devuelve HTTP 404." } }
+      }
+    }
+  }
+}

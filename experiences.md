@@ -1,0 +1,11 @@
+# Project experiences
+
+## 2026-11-02 — first live vertical slice
+
+- The supplied OpenAPI file is essential for endpoint mapping, but authenticated responses add `valor_null` and other `*_null` statistical-sign fields that it does not declare. Strict validation of known identifying fields plus preservation of additional observation fields avoids silently losing provisional/unavailable signs.
+- The documented `/indice_salarios` endpoint returns HTTP 404 even with a minimal authenticated query. The tools expose that failure explicitly. A fixture or an alternative source would not establish a successful INDEC wage integration.
+- The first actual SDK HTTP tool call returned the latest available national monthly IPC observation for 2026-09. That did not establish an October observation or a release date; the output distinguishes reference month, retrieval time and unknown publication date.
+- Sites prefers the 2026-07-28 stateless discovery protocol. The installed v1 SDK initially supported only older revisions; official SDK v2 provides modern discovery and legacy Streamable HTTP from one definition set, avoiding a custom protocol shim.
+- Shared rate counters use one conditional SQLite/D1 upsert per bucket. Integration tests with multiple state instances confirm the limit cannot be exceeded through separate in-process state objects. Memory-only counters remain restricted to local development.
+- Stable bounded pagination carries the complete documented ordering key. Duplicate periods, inconsistent ordering and changing total counts fail closed. An operational cache is not an immutable publication archive.
+- The approved public name is INDEC MCP, with English base listing text and Spanish metadata. The existing GitHub name indecmcp was explicitly retained; the package remains indec-mcp. Apache-2.0 and an original chart/wordmark direction were approved.

@@ -1,0 +1,9 @@
+# Newspaper integration plan
+
+1. Keep this repository standalone. The newspaper consumes the published MCP contract through an authenticated connection supported by Sites. Do not share the INDEC token with the editorial application or bypass Sites identity checks for automation.
+2. Resolve unattended/service authentication with Sites before wiring publication jobs. Existing local `.env` credentials or the author's interactive connection do not establish unattended access.
+3. At publication time, the newspaper explicitly captures the exact tool result it actually used, with its INDEC source query, observation reference period, retrieved_at, raw values/null signs, calculation inputs, tool/schema version and the newspaper publication timestamp/ID.
+4. Store that capture in the newspaper's separate immutable snapshot source. Write once under a publication ID, record a content hash, and retain correction records as new versions rather than overwriting originals. Snapshot creation is a future explicitly authorized editorial operation, not a side effect of these read-only tools.
+5. Introduce a second adapter only after actual snapshots exist. Its tools must identify `data_source: newspaper_snapshot`, publication ID/time and original capture metadata. Current official queries continue to identify `current_official`.
+6. A historical query with no archived capture returns unavailable. Do not backdate current observations, use cache history as a publication archive, or infer a missing vintage from later revisions.
+7. Share statistical calculation functions through a small extracted package only if both consumers actually need local calculations; avoid an editorial dependency in this MCP server. Contract tests should pin source/version distinctions and prevent current/archive mixing.

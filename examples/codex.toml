@@ -1,0 +1,9 @@
+# Local development only. The loopback adapter supplies a development identity.
+[mcp_servers.indec-local]
+url = "http://127.0.0.1:8787/mcp"
+
+# Hosted use: install/connect the native plugin created by Sites publication.
+# INDEC_API_TOKEN never belongs in a Codex/client configuration.
+# For manual remote configuration in another compatible client, obtain the exact
+# MCP URL and OAuth resource from Sites get_site(include_mcp_connection=true).
+# Cross-client OAuth compatibility must be verified before claiming support.
