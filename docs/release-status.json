@@ -1,5 +1,6 @@
 {
-  "hosted_deployment_verified": false,
+  "hosted_deployment_verified": true,
+  "native_plugin_installed": true,
   "native_plugin_tool_call_verified": false,
   "cross_client_oauth_verified": false,
   "wage_series_live_verified": false,
