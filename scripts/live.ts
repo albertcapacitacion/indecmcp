@@ -36,7 +36,7 @@ try {
     calls.push({ request, result });
     console.log(JSON.stringify({ tool: request.name, series: request.arguments.series_id, outcome: "live data verified", data: ["get_latest_inflation", "get_wage_growth", "compare_wages_inflation"].includes(request.name) ? result.structuredContent : undefined }));
   }
-  const recording = { verification: "LIVE INDEC THROUGH REAL HTTP MCP CLIENT", purpose: "Reproducible integration evidence; not a newspaper publication archive", recorded_at: new Date().toISOString(), era: client.getProtocolEra(), calls };
+  const recording = { verification: "LIVE INDEC THROUGH REAL HTTP MCP CLIENT", purpose: "Reproducible integration evidence", recorded_at: new Date().toISOString(), era: client.getProtocolEra(), calls };
   if (process.argv.includes("--record")) {
     await mkdir("docs/examples", { recursive: true });
     const filename = `docs/examples/live-${recording.recorded_at.replaceAll(":", "-")}.json`;

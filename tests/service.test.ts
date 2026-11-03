@@ -5,7 +5,7 @@ import { latestInflation, NATIONAL_MONTHLY } from "../src/inflation.js";
 import { MemoryState } from "../src/state.js";
 import { getSeries, seriesInput } from "../src/series.js";
 
-// Synthetic test fixtures. These are not archived publications or proof of live integration.
+// Synthetic test fixtures, not proof of live integration.
 export const row = (period = "202609", value: number | null = 1.9) => ({ ...NATIONAL_MONTHLY, periodo: period, anio: Number(period.slice(0, 4)), mes: Number(period.slice(4)), valor: value, valor_null: value === null ? "..." : null, observaciones: "Dato provisorio", extra_statistical_flag: "*" });
 export function upstream(rows: unknown[], total = rows.length) {
   return new IndecClient("test-only-token", async () => Response.json(rows, { status: total > rows.length ? 206 : 200, headers: { "content-range": `0-${Math.max(0, rows.length - 1)}/${total}` } }));
