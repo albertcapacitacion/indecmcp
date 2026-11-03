@@ -40,7 +40,7 @@ Ejemplos reales probados en ChatGPT el 3 de noviembre de 2026. Los gráficos, co
 
 **Revisá el período, las unidades y la cobertura antes de compartir.** El último dato disponible puede corresponder a un mes o trimestre anterior. Distinguí las observaciones oficiales de los cálculos y revisá los archivos descargados.
 
-[Nueve flujos paso a paso](docs/START_HERE.md) · [Instalación y desarrollo](docs/DEVELOPMENT.md) · [Herramientas disponibles](docs/TOOL_CONTRACT.md) · [Seguridad](SECURITY.md) · [Privacidad](docs/PRIVACY.md) — documentación en inglés.
+[Nueve flujos paso a paso en español](docs/START_HERE.es.md) · [Instalación y desarrollo](docs/DEVELOPMENT.md) · [Herramientas disponibles](docs/TOOL_CONTRACT.md) · [Seguridad](SECURITY.md) · [Privacidad](docs/PRIVACY.md) — el resto de la documentación está en inglés.
 
 **Ayudanos a mejorar la primera versión:** [abrí un issue](https://github.com/albertcapacitacion/indecmcp/issues/new) con tu consulta, el resultado esperado y lo que ocurrió. Quitá los datos personales y las credenciales.
 

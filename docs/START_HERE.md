@@ -1,3 +1,5 @@
+**<img src="https://flagcdn.com/w40/gb.png" alt="English" width="24"> EN** · [<img src="https://flagcdn.com/w40/ar.png" alt="Español" width="24"> ES](START_HERE.es.md) · [README](../README.md)
+
 # Start here: everyday questions with INDEC MCP in ChatGPT
 
 Use INDEC MCP to bring official Argentine statistics into your conversation. Then ask ChatGPT to explain them, draw charts, compare them with your own numbers, or make a file you can keep.
