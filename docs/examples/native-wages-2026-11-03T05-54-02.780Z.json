@@ -1,0 +1,865 @@
+{
+  "verification": "LIVE HOSTED SITES MCP WAGE TOOLS",
+  "purpose": "Integration evidence; not a newspaper publication archive",
+  "recorded_at": "2026-11-03T05:54:02.780Z",
+  "deployment": {
+    "id": "appgdep_6ae97695cfd88191beb741aef05f1669",
+    "project_id": "appgprj_6ae9131bb2b08191874313adb38c0d92",
+    "title": "INDEC MCP",
+    "version_id": "appgprj_6ae9131bb2b08191874313adb38c0d92~appgver_118d8ed15350819194394168ae91e5ec",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://indec-mcp.albertcapacitaciondi.chatgpt.site",
+    "has_mcp": true,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ae9131bb2b08191874313adb38c0d92",
+    "failure_message": null,
+    "env_set_revision": 1,
+    "updated_at": "2026-11-03T05:52:30.254618+00:00"
+  },
+  "source_commit": "1f7058c3cbec5db161c1907cdafc8820ffc659c9",
+  "calls": [
+    {
+      "request": {
+        "tool": "get_wage_growth",
+        "args": {
+          "sector": "total",
+          "window": "year_over_year"
+        }
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"schema_version\":\"1.0\",\"status\":\"ok\",\"data_source\":\"current_official\",\"series_id\":\"wages.total.year_over_year\",\"frequency\":\"monthly\",\"coverage\":\"Argentina, national; selected wage sector\",\"seasonal_adjustment\":\"not_applicable\",\"unit\":\"percent\",\"calculated\":false,\"observations\":[{\"reference_period\":\"2026-08\",\"value\":35.61,\"statistical_flag\":null,\"observations\":null,\"raw\":{\"clasificador\":\"IS 2001\",\"nivel\":\"0\",\"codigo\":\"0\",\"descripcion\":\"Nivel general\",\"indicador\":\"Índice de salarios (IS)\",\"tipo_de_indicador\":\"v_ia\",\"tipo_de_indicador_descripcion\":\"Variación porcentual respecto del mismo período del año anterior\",\"unidad_de_medida\":\"Porcentaje\",\"periodo\":\"202608\",\"anio\":2026,\"mes\":8,\"valor\":35.61,\"observaciones\":null,\"valor_null\":null}}],\"returned_order\":\"ascending\",\"requested_start\":null,\"requested_end\":null,\"truncated\":true,\"sources\":[{\"url\":\"https://api.indec.gob.ar/v1/indice_salarios?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cunidad_de_medida&offset=0&clasificador=eq.IS+2001&nivel=eq.0&codigo=eq.0&descripcion=eq.Nivel+general&indicador=eq.%C3%8Dndice+de+salarios+%28IS%29&tipo_de_indicador=eq.v_ia&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+respecto+del+mismo+per%C3%ADodo+del+a%C3%B1o+anterior&unidad_de_medida=eq.Porcentaje&limit=2\",\"retrieved_at\":\"2026-11-03T05:52:46.531Z\"}],\"publication_date\":null,\"methodology_source\":\"https://www.indec.gob.ar/ftp/cuadros/sociedad/cvs_metodologia.pdf\",\"cache\":{\"hit\":false,\"expires_at\":\"2026-11-03T06:52:46.531Z\"},\"warnings\":[\"Publication date is not supplied by this API. Current observations can be revised.\",\"Only the most recent observations within the requested bounds and limit are returned.\",\"Published official percentage change; not a sum of monthly rates. The baseline identifies the measure's comparison period, not a separately retrieved index observation.\",\"Latest available wage month; not necessarily the previous calendar month.\"],\"sector\":\"total\",\"window\":\"year_over_year\",\"reference_period\":\"2026-08\",\"baseline_period\":\"2025-08\",\"period_selection\":\"latest_available\",\"value\":35.61,\"official_measure\":\"Variación porcentual respecto del mismo período del año anterior\"}"
+          }
+        ],
+        "structuredContent": {
+          "schema_version": "1.0",
+          "status": "ok",
+          "data_source": "current_official",
+          "series_id": "wages.total.year_over_year",
+          "frequency": "monthly",
+          "coverage": "Argentina, national; selected wage sector",
+          "seasonal_adjustment": "not_applicable",
+          "unit": "percent",
+          "calculated": false,
+          "observations": [
+            {
+              "reference_period": "2026-08",
+              "value": 35.61,
+              "statistical_flag": null,
+              "observations": null,
+              "raw": {
+                "clasificador": "IS 2001",
+                "nivel": "0",
+                "codigo": "0",
+                "descripcion": "Nivel general",
+                "indicador": "Índice de salarios (IS)",
+                "tipo_de_indicador": "v_ia",
+                "tipo_de_indicador_descripcion": "Variación porcentual respecto del mismo período del año anterior",
+                "unidad_de_medida": "Porcentaje",
+                "periodo": "202608",
+                "anio": 2026,
+                "mes": 8,
+                "valor": 35.61,
+                "observaciones": null,
+                "valor_null": null
+              }
+            }
+          ],
+          "returned_order": "ascending",
+          "requested_start": null,
+          "requested_end": null,
+          "truncated": true,
+          "sources": [
+            {
+              "url": "https://api.indec.gob.ar/v1/indice_salarios?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cunidad_de_medida&offset=0&clasificador=eq.IS+2001&nivel=eq.0&codigo=eq.0&descripcion=eq.Nivel+general&indicador=eq.%C3%8Dndice+de+salarios+%28IS%29&tipo_de_indicador=eq.v_ia&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+respecto+del+mismo+per%C3%ADodo+del+a%C3%B1o+anterior&unidad_de_medida=eq.Porcentaje&limit=2",
+              "retrieved_at": "2026-11-03T05:52:46.531Z"
+            }
+          ],
+          "publication_date": null,
+          "methodology_source": "https://www.indec.gob.ar/ftp/cuadros/sociedad/cvs_metodologia.pdf",
+          "cache": {
+            "hit": false,
+            "expires_at": "2026-11-03T06:52:46.531Z"
+          },
+          "warnings": [
+            "Publication date is not supplied by this API. Current observations can be revised.",
+            "Only the most recent observations within the requested bounds and limit are returned.",
+            "Published official percentage change; not a sum of monthly rates. The baseline identifies the measure's comparison period, not a separately retrieved index observation.",
+            "Latest available wage month; not necessarily the previous calendar month."
+          ],
+          "sector": "total",
+          "window": "year_over_year",
+          "reference_period": "2026-08",
+          "baseline_period": "2025-08",
+          "period_selection": "latest_available",
+          "value": 35.61,
+          "official_measure": "Variación porcentual respecto del mismo período del año anterior"
+        },
+        "isError": false
+      }
+    },
+    {
+      "request": {
+        "tool": "compare_wages_inflation",
+        "args": {
+          "sector": "total",
+          "window": "year_over_year"
+        }
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"schema_version\":\"1.0\",\"status\":\"ok\",\"data_source\":\"current_official\",\"sector\":\"total\",\"window\":\"year_over_year\",\"reference_period\":\"2026-08\",\"baseline_period\":\"2025-08\",\"frequency\":\"monthly\",\"period_selection\":\"latest_mutual_cutoff\",\"latest_available_periods\":{\"wages\":\"2026-08\",\"inflation\":\"2026-09\"},\"wages\":{\"schema_version\":\"1.0\",\"status\":\"ok\",\"data_source\":\"current_official\",\"series_id\":\"wages.total.year_over_year\",\"frequency\":\"monthly\",\"coverage\":\"Argentina, national; selected wage sector\",\"seasonal_adjustment\":\"not_applicable\",\"unit\":\"percent\",\"calculated\":false,\"observations\":[{\"reference_period\":\"2026-08\",\"value\":35.61,\"statistical_flag\":null,\"observations\":null,\"raw\":{\"clasificador\":\"IS 2001\",\"nivel\":\"0\",\"codigo\":\"0\",\"descripcion\":\"Nivel general\",\"indicador\":\"Índice de salarios (IS)\",\"tipo_de_indicador\":\"v_ia\",\"tipo_de_indicador_descripcion\":\"Variación porcentual respecto del mismo período del año anterior\",\"unidad_de_medida\":\"Porcentaje\",\"periodo\":\"202608\",\"anio\":2026,\"mes\":8,\"valor\":35.61,\"observaciones\":null,\"valor_null\":null}}],\"returned_order\":\"ascending\",\"requested_start\":null,\"requested_end\":null,\"truncated\":true,\"sources\":[{\"url\":\"https://api.indec.gob.ar/v1/indice_salarios?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cunidad_de_medida&offset=0&clasificador=eq.IS+2001&nivel=eq.0&codigo=eq.0&descripcion=eq.Nivel+general&indicador=eq.%C3%8Dndice+de+salarios+%28IS%29&tipo_de_indicador=eq.v_ia&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+respecto+del+mismo+per%C3%ADodo+del+a%C3%B1o+anterior&unidad_de_medida=eq.Porcentaje&limit=2\",\"retrieved_at\":\"2026-11-03T05:52:46.531Z\"}],\"publication_date\":null,\"methodology_source\":\"https://www.indec.gob.ar/ftp/cuadros/sociedad/cvs_metodologia.pdf\",\"cache\":{\"hit\":true,\"expires_at\":\"2026-11-03T06:52:46.531Z\"},\"warnings\":[\"Publication date is not supplied by this API. Current observations can be revised.\",\"Only the most recent observations within the requested bounds and limit are returned.\",\"Published official percentage change; not a sum of monthly rates. The baseline identifies the measure's comparison period, not a separately retrieved index observation.\",\"Latest available wage month; not necessarily the previous calendar month.\"],\"sector\":\"total\",\"window\":\"year_over_year\",\"reference_period\":\"2026-08\",\"baseline_period\":\"2025-08\",\"period_selection\":\"latest_available\",\"value\":35.61,\"official_measure\":\"Variación porcentual respecto del mismo período del año anterior\"},\"inflation\":{\"schema_version\":\"1.0\",\"status\":\"ok\",\"data_source\":\"current_official\",\"series_id\":\"ipc.national.headline.year_over_year\",\"frequency\":\"monthly\",\"coverage\":\"Argentina, national\",\"seasonal_adjustment\":\"not_applicable\",\"unit\":\"percent\",\"calculated\":false,\"observations\":[{\"reference_period\":\"2026-08\",\"value\":33.5,\"statistical_flag\":null,\"observations\":null,\"raw\":{\"clasificador\":\"IPC\",\"nivel\":\"Nivel General\",\"codigo\":\"0\",\"descripcion\":\"Nivel general\",\"indicador\":\"IPC base Dic16=100\",\"tipo_de_indicador\":\"v_ia\",\"tipo_de_indicador_descripcion\":\"Variación porcentual respecto del mismo período del año anterior\",\"region\":\"Nacional\",\"unidad_de_medida\":\"Porcentaje\",\"periodo\":\"202608\",\"anio\":2026,\"mes\":8,\"valor\":33.5,\"observaciones\":null,\"valor_null\":null}}],\"returned_order\":\"ascending\",\"requested_start\":\"2026-08\",\"requested_end\":\"2026-08\",\"truncated\":false,\"sources\":[{\"url\":\"https://api.indec.gob.ar/v1/ipc_nacional?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cregion%2Cunidad_de_medida&offset=0&clasificador=eq.IPC&nivel=eq.Nivel+General&codigo=eq.0&descripcion=eq.Nivel+general&indicador=eq.IPC+base+Dic16%3D100&tipo_de_indicador=eq.v_ia&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+respecto+del+mismo+per%C3%ADodo+del+a%C3%B1o+anterior&region=eq.Nacional&unidad_de_medida=eq.Porcentaje&periodo=gte.202608&periodo=lte.202608&limit=2\",\"retrieved_at\":\"2026-11-03T05:52:59.726Z\"}],\"publication_date\":null,\"methodology_source\":\"https://www.indec.gob.ar/ftp/cuadros/economia/metodologia_ipc_nacional_2019.pdf\",\"cache\":{\"hit\":false,\"expires_at\":\"2026-11-03T06:52:59.726Z\"},\"warnings\":[\"Publication date is not supplied by this API. Current observations can be revised.\"]},\"calculated\":true,\"real_wage_change_percent\":1.5805243445693007,\"growth_gap_percentage_points\":2.1099999999999994,\"formula\":\"((1 + wage_growth_percent / 100) / (1 + inflation_percent / 100) - 1) * 100\",\"warnings\":[\"Publication date is not supplied by this API. Current observations can be revised.\",\"Only the most recent observations within the requested bounds and limit are returned.\",\"Published official percentage change; not a sum of monthly rates. The baseline identifies the measure's comparison period, not a separately retrieved index observation.\",\"Latest available wage month; not necessarily the previous calendar month.\",\"Real wage change is calculated from published, potentially rounded official rates; the percentage-point gap is a different measure.\",\"Compared the earlier of the latest wage and inflation reference months, requiring exact observations at that cutoff. No older month or non-null value was substituted.\"]}"
+          }
+        ],
+        "structuredContent": {
+          "schema_version": "1.0",
+          "status": "ok",
+          "data_source": "current_official",
+          "sector": "total",
+          "window": "year_over_year",
+          "reference_period": "2026-08",
+          "baseline_period": "2025-08",
+          "frequency": "monthly",
+          "period_selection": "latest_mutual_cutoff",
+          "latest_available_periods": {
+            "wages": "2026-08",
+            "inflation": "2026-09"
+          },
+          "wages": {
+            "schema_version": "1.0",
+            "status": "ok",
+            "data_source": "current_official",
+            "series_id": "wages.total.year_over_year",
+            "frequency": "monthly",
+            "coverage": "Argentina, national; selected wage sector",
+            "seasonal_adjustment": "not_applicable",
+            "unit": "percent",
+            "calculated": false,
+            "observations": [
+              {
+                "reference_period": "2026-08",
+                "value": 35.61,
+                "statistical_flag": null,
+                "observations": null,
+                "raw": {
+                  "clasificador": "IS 2001",
+                  "nivel": "0",
+                  "codigo": "0",
+                  "descripcion": "Nivel general",
+                  "indicador": "Índice de salarios (IS)",
+                  "tipo_de_indicador": "v_ia",
+                  "tipo_de_indicador_descripcion": "Variación porcentual respecto del mismo período del año anterior",
+                  "unidad_de_medida": "Porcentaje",
+                  "periodo": "202608",
+                  "anio": 2026,
+                  "mes": 8,
+                  "valor": 35.61,
+                  "observaciones": null,
+                  "valor_null": null
+                }
+              }
+            ],
+            "returned_order": "ascending",
+            "requested_start": null,
+            "requested_end": null,
+            "truncated": true,
+            "sources": [
+              {
+                "url": "https://api.indec.gob.ar/v1/indice_salarios?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cunidad_de_medida&offset=0&clasificador=eq.IS+2001&nivel=eq.0&codigo=eq.0&descripcion=eq.Nivel+general&indicador=eq.%C3%8Dndice+de+salarios+%28IS%29&tipo_de_indicador=eq.v_ia&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+respecto+del+mismo+per%C3%ADodo+del+a%C3%B1o+anterior&unidad_de_medida=eq.Porcentaje&limit=2",
+                "retrieved_at": "2026-11-03T05:52:46.531Z"
+              }
+            ],
+            "publication_date": null,
+            "methodology_source": "https://www.indec.gob.ar/ftp/cuadros/sociedad/cvs_metodologia.pdf",
+            "cache": {
+              "hit": true,
+              "expires_at": "2026-11-03T06:52:46.531Z"
+            },
+            "warnings": [
+              "Publication date is not supplied by this API. Current observations can be revised.",
+              "Only the most recent observations within the requested bounds and limit are returned.",
+              "Published official percentage change; not a sum of monthly rates. The baseline identifies the measure's comparison period, not a separately retrieved index observation.",
+              "Latest available wage month; not necessarily the previous calendar month."
+            ],
+            "sector": "total",
+            "window": "year_over_year",
+            "reference_period": "2026-08",
+            "baseline_period": "2025-08",
+            "period_selection": "latest_available",
+            "value": 35.61,
+            "official_measure": "Variación porcentual respecto del mismo período del año anterior"
+          },
+          "inflation": {
+            "schema_version": "1.0",
+            "status": "ok",
+            "data_source": "current_official",
+            "series_id": "ipc.national.headline.year_over_year",
+            "frequency": "monthly",
+            "coverage": "Argentina, national",
+            "seasonal_adjustment": "not_applicable",
+            "unit": "percent",
+            "calculated": false,
+            "observations": [
+              {
+                "reference_period": "2026-08",
+                "value": 33.5,
+                "statistical_flag": null,
+                "observations": null,
+                "raw": {
+                  "clasificador": "IPC",
+                  "nivel": "Nivel General",
+                  "codigo": "0",
+                  "descripcion": "Nivel general",
+                  "indicador": "IPC base Dic16=100",
+                  "tipo_de_indicador": "v_ia",
+                  "tipo_de_indicador_descripcion": "Variación porcentual respecto del mismo período del año anterior",
+                  "region": "Nacional",
+                  "unidad_de_medida": "Porcentaje",
+                  "periodo": "202608",
+                  "anio": 2026,
+                  "mes": 8,
+                  "valor": 33.5,
+                  "observaciones": null,
+                  "valor_null": null
+                }
+              }
+            ],
+            "returned_order": "ascending",
+            "requested_start": "2026-08",
+            "requested_end": "2026-08",
+            "truncated": false,
+            "sources": [
+              {
+                "url": "https://api.indec.gob.ar/v1/ipc_nacional?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cregion%2Cunidad_de_medida&offset=0&clasificador=eq.IPC&nivel=eq.Nivel+General&codigo=eq.0&descripcion=eq.Nivel+general&indicador=eq.IPC+base+Dic16%3D100&tipo_de_indicador=eq.v_ia&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+respecto+del+mismo+per%C3%ADodo+del+a%C3%B1o+anterior&region=eq.Nacional&unidad_de_medida=eq.Porcentaje&periodo=gte.202608&periodo=lte.202608&limit=2",
+                "retrieved_at": "2026-11-03T05:52:59.726Z"
+              }
+            ],
+            "publication_date": null,
+            "methodology_source": "https://www.indec.gob.ar/ftp/cuadros/economia/metodologia_ipc_nacional_2019.pdf",
+            "cache": {
+              "hit": false,
+              "expires_at": "2026-11-03T06:52:59.726Z"
+            },
+            "warnings": [
+              "Publication date is not supplied by this API. Current observations can be revised."
+            ]
+          },
+          "calculated": true,
+          "real_wage_change_percent": 1.5805243445693007,
+          "growth_gap_percentage_points": 2.1099999999999994,
+          "formula": "((1 + wage_growth_percent / 100) / (1 + inflation_percent / 100) - 1) * 100",
+          "warnings": [
+            "Publication date is not supplied by this API. Current observations can be revised.",
+            "Only the most recent observations within the requested bounds and limit are returned.",
+            "Published official percentage change; not a sum of monthly rates. The baseline identifies the measure's comparison period, not a separately retrieved index observation.",
+            "Latest available wage month; not necessarily the previous calendar month.",
+            "Real wage change is calculated from published, potentially rounded official rates; the percentage-point gap is a different measure.",
+            "Compared the earlier of the latest wage and inflation reference months, requiring exact observations at that cutoff. No older month or non-null value was substituted."
+          ]
+        },
+        "isError": false
+      }
+    },
+    {
+      "request": {
+        "name": "wage_cache",
+        "tool": "get_wage_growth",
+        "args": {
+          "sector": "total",
+          "window": "year_over_year"
+        }
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"schema_version\":\"1.0\",\"status\":\"ok\",\"data_source\":\"current_official\",\"series_id\":\"wages.total.year_over_year\",\"frequency\":\"monthly\",\"coverage\":\"Argentina, national; selected wage sector\",\"seasonal_adjustment\":\"not_applicable\",\"unit\":\"percent\",\"calculated\":false,\"observations\":[{\"reference_period\":\"2026-08\",\"value\":35.61,\"statistical_flag\":null,\"observations\":null,\"raw\":{\"clasificador\":\"IS 2001\",\"nivel\":\"0\",\"codigo\":\"0\",\"descripcion\":\"Nivel general\",\"indicador\":\"Índice de salarios (IS)\",\"tipo_de_indicador\":\"v_ia\",\"tipo_de_indicador_descripcion\":\"Variación porcentual respecto del mismo período del año anterior\",\"unidad_de_medida\":\"Porcentaje\",\"periodo\":\"202608\",\"anio\":2026,\"mes\":8,\"valor\":35.61,\"observaciones\":null,\"valor_null\":null}}],\"returned_order\":\"ascending\",\"requested_start\":null,\"requested_end\":null,\"truncated\":true,\"sources\":[{\"url\":\"https://api.indec.gob.ar/v1/indice_salarios?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cunidad_de_medida&offset=0&clasificador=eq.IS+2001&nivel=eq.0&codigo=eq.0&descripcion=eq.Nivel+general&indicador=eq.%C3%8Dndice+de+salarios+%28IS%29&tipo_de_indicador=eq.v_ia&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+respecto+del+mismo+per%C3%ADodo+del+a%C3%B1o+anterior&unidad_de_medida=eq.Porcentaje&limit=2\",\"retrieved_at\":\"2026-11-03T05:52:46.531Z\"}],\"publication_date\":null,\"methodology_source\":\"https://www.indec.gob.ar/ftp/cuadros/sociedad/cvs_metodologia.pdf\",\"cache\":{\"hit\":true,\"expires_at\":\"2026-11-03T06:52:46.531Z\"},\"warnings\":[\"Publication date is not supplied by this API. Current observations can be revised.\",\"Only the most recent observations within the requested bounds and limit are returned.\",\"Published official percentage change; not a sum of monthly rates. The baseline identifies the measure's comparison period, not a separately retrieved index observation.\",\"Latest available wage month; not necessarily the previous calendar month.\"],\"sector\":\"total\",\"window\":\"year_over_year\",\"reference_period\":\"2026-08\",\"baseline_period\":\"2025-08\",\"period_selection\":\"latest_available\",\"value\":35.61,\"official_measure\":\"Variación porcentual respecto del mismo período del año anterior\"}"
+          }
+        ],
+        "structuredContent": {
+          "schema_version": "1.0",
+          "status": "ok",
+          "data_source": "current_official",
+          "series_id": "wages.total.year_over_year",
+          "frequency": "monthly",
+          "coverage": "Argentina, national; selected wage sector",
+          "seasonal_adjustment": "not_applicable",
+          "unit": "percent",
+          "calculated": false,
+          "observations": [
+            {
+              "reference_period": "2026-08",
+              "value": 35.61,
+              "statistical_flag": null,
+              "observations": null,
+              "raw": {
+                "clasificador": "IS 2001",
+                "nivel": "0",
+                "codigo": "0",
+                "descripcion": "Nivel general",
+                "indicador": "Índice de salarios (IS)",
+                "tipo_de_indicador": "v_ia",
+                "tipo_de_indicador_descripcion": "Variación porcentual respecto del mismo período del año anterior",
+                "unidad_de_medida": "Porcentaje",
+                "periodo": "202608",
+                "anio": 2026,
+                "mes": 8,
+                "valor": 35.61,
+                "observaciones": null,
+                "valor_null": null
+              }
+            }
+          ],
+          "returned_order": "ascending",
+          "requested_start": null,
+          "requested_end": null,
+          "truncated": true,
+          "sources": [
+            {
+              "url": "https://api.indec.gob.ar/v1/indice_salarios?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cunidad_de_medida&offset=0&clasificador=eq.IS+2001&nivel=eq.0&codigo=eq.0&descripcion=eq.Nivel+general&indicador=eq.%C3%8Dndice+de+salarios+%28IS%29&tipo_de_indicador=eq.v_ia&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+respecto+del+mismo+per%C3%ADodo+del+a%C3%B1o+anterior&unidad_de_medida=eq.Porcentaje&limit=2",
+              "retrieved_at": "2026-11-03T05:52:46.531Z"
+            }
+          ],
+          "publication_date": null,
+          "methodology_source": "https://www.indec.gob.ar/ftp/cuadros/sociedad/cvs_metodologia.pdf",
+          "cache": {
+            "hit": true,
+            "expires_at": "2026-11-03T06:52:46.531Z"
+          },
+          "warnings": [
+            "Publication date is not supplied by this API. Current observations can be revised.",
+            "Only the most recent observations within the requested bounds and limit are returned.",
+            "Published official percentage change; not a sum of monthly rates. The baseline identifies the measure's comparison period, not a separately retrieved index observation.",
+            "Latest available wage month; not necessarily the previous calendar month."
+          ],
+          "sector": "total",
+          "window": "year_over_year",
+          "reference_period": "2026-08",
+          "baseline_period": "2025-08",
+          "period_selection": "latest_available",
+          "value": 35.61,
+          "official_measure": "Variación porcentual respecto del mismo período del año anterior"
+        },
+        "isError": false
+      }
+    },
+    {
+      "request": {
+        "name": "monthly_public",
+        "tool": "compare_wages_inflation",
+        "args": {
+          "sector": "public",
+          "window": "monthly",
+          "end_period": "2026-08"
+        }
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"schema_version\":\"1.0\",\"status\":\"ok\",\"data_source\":\"current_official\",\"sector\":\"public\",\"window\":\"monthly\",\"reference_period\":\"2026-08\",\"baseline_period\":\"2026-07\",\"frequency\":\"monthly\",\"period_selection\":\"requested_exact\",\"latest_available_periods\":null,\"wages\":{\"schema_version\":\"1.0\",\"status\":\"ok\",\"data_source\":\"current_official\",\"series_id\":\"wages.public.monthly\",\"frequency\":\"monthly\",\"coverage\":\"Argentina, national; selected wage sector\",\"seasonal_adjustment\":\"not_applicable\",\"unit\":\"percent\",\"calculated\":false,\"observations\":[{\"reference_period\":\"2026-08\",\"value\":2.26,\"statistical_flag\":null,\"observations\":null,\"raw\":{\"clasificador\":\"IS 2001\",\"nivel\":\"2\",\"codigo\":\"120\",\"descripcion\":\"Sector público\",\"indicador\":\"Índice de salarios (IS)\",\"tipo_de_indicador\":\"v_m\",\"tipo_de_indicador_descripcion\":\"Variación porcentual respecto del período anterior\",\"unidad_de_medida\":\"Porcentaje\",\"periodo\":\"202608\",\"anio\":2026,\"mes\":8,\"valor\":2.26,\"observaciones\":null,\"valor_null\":null}}],\"returned_order\":\"ascending\",\"requested_start\":\"2026-08\",\"requested_end\":\"2026-08\",\"truncated\":false,\"sources\":[{\"url\":\"https://api.indec.gob.ar/v1/indice_salarios?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cunidad_de_medida&offset=0&clasificador=eq.IS+2001&nivel=eq.2&codigo=eq.120&descripcion=eq.Sector+p%C3%BAblico&indicador=eq.%C3%8Dndice+de+salarios+%28IS%29&tipo_de_indicador=eq.v_m&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+respecto+del+per%C3%ADodo+anterior&unidad_de_medida=eq.Porcentaje&periodo=gte.202608&periodo=lte.202608&limit=2\",\"retrieved_at\":\"2026-11-03T05:53:25.847Z\"}],\"publication_date\":null,\"methodology_source\":\"https://www.indec.gob.ar/ftp/cuadros/sociedad/cvs_metodologia.pdf\",\"cache\":{\"hit\":false,\"expires_at\":\"2026-11-03T06:53:25.847Z\"},\"warnings\":[\"Publication date is not supplied by this API. Current observations can be revised.\",\"Published official percentage change; not a sum of monthly rates. The baseline identifies the measure's comparison period, not a separately retrieved index observation.\"],\"sector\":\"public\",\"window\":\"monthly\",\"reference_period\":\"2026-08\",\"baseline_period\":\"2026-07\",\"period_selection\":\"requested_exact\",\"value\":2.26,\"official_measure\":\"Variación porcentual respecto del período anterior\"},\"inflation\":{\"schema_version\":\"1.0\",\"status\":\"ok\",\"data_source\":\"current_official\",\"series_id\":\"ipc.national.headline.monthly_change\",\"frequency\":\"monthly\",\"coverage\":\"Argentina, national\",\"seasonal_adjustment\":\"not_applicable\",\"unit\":\"percent\",\"calculated\":false,\"observations\":[{\"reference_period\":\"2026-08\",\"value\":1.7,\"statistical_flag\":null,\"observations\":null,\"raw\":{\"clasificador\":\"IPC\",\"nivel\":\"Nivel General\",\"codigo\":\"0\",\"descripcion\":\"Nivel general\",\"indicador\":\"IPC base Dic16=100\",\"tipo_de_indicador\":\"v_m\",\"tipo_de_indicador_descripcion\":\"Variación porcentual respecto del período anterior\",\"region\":\"Nacional\",\"unidad_de_medida\":\"Porcentaje\",\"periodo\":\"202608\",\"anio\":2026,\"mes\":8,\"valor\":1.7,\"observaciones\":null,\"valor_null\":null}}],\"returned_order\":\"ascending\",\"requested_start\":\"2026-08\",\"requested_end\":\"2026-08\",\"truncated\":false,\"sources\":[{\"url\":\"https://api.indec.gob.ar/v1/ipc_nacional?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cregion%2Cunidad_de_medida&offset=0&clasificador=eq.IPC&nivel=eq.Nivel+General&codigo=eq.0&descripcion=eq.Nivel+general&indicador=eq.IPC+base+Dic16%3D100&tipo_de_indicador=eq.v_m&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+respecto+del+per%C3%ADodo+anterior&region=eq.Nacional&unidad_de_medida=eq.Porcentaje&periodo=gte.202608&periodo=lte.202608&limit=2\",\"retrieved_at\":\"2026-11-03T05:53:27.645Z\"}],\"publication_date\":null,\"methodology_source\":\"https://www.indec.gob.ar/ftp/cuadros/economia/metodologia_ipc_nacional_2019.pdf\",\"cache\":{\"hit\":false,\"expires_at\":\"2026-11-03T06:53:27.645Z\"},\"warnings\":[\"Publication date is not supplied by this API. Current observations can be revised.\"]},\"calculated\":true,\"real_wage_change_percent\":0.5506391347099404,\"growth_gap_percentage_points\":0.5599999999999998,\"formula\":\"((1 + wage_growth_percent / 100) / (1 + inflation_percent / 100) - 1) * 100\",\"warnings\":[\"Publication date is not supplied by this API. Current observations can be revised.\",\"Published official percentage change; not a sum of monthly rates. The baseline identifies the measure's comparison period, not a separately retrieved index observation.\",\"Real wage change is calculated from published, potentially rounded official rates; the percentage-point gap is a different measure.\"]}"
+          }
+        ],
+        "structuredContent": {
+          "schema_version": "1.0",
+          "status": "ok",
+          "data_source": "current_official",
+          "sector": "public",
+          "window": "monthly",
+          "reference_period": "2026-08",
+          "baseline_period": "2026-07",
+          "frequency": "monthly",
+          "period_selection": "requested_exact",
+          "latest_available_periods": null,
+          "wages": {
+            "schema_version": "1.0",
+            "status": "ok",
+            "data_source": "current_official",
+            "series_id": "wages.public.monthly",
+            "frequency": "monthly",
+            "coverage": "Argentina, national; selected wage sector",
+            "seasonal_adjustment": "not_applicable",
+            "unit": "percent",
+            "calculated": false,
+            "observations": [
+              {
+                "reference_period": "2026-08",
+                "value": 2.26,
+                "statistical_flag": null,
+                "observations": null,
+                "raw": {
+                  "clasificador": "IS 2001",
+                  "nivel": "2",
+                  "codigo": "120",
+                  "descripcion": "Sector público",
+                  "indicador": "Índice de salarios (IS)",
+                  "tipo_de_indicador": "v_m",
+                  "tipo_de_indicador_descripcion": "Variación porcentual respecto del período anterior",
+                  "unidad_de_medida": "Porcentaje",
+                  "periodo": "202608",
+                  "anio": 2026,
+                  "mes": 8,
+                  "valor": 2.26,
+                  "observaciones": null,
+                  "valor_null": null
+                }
+              }
+            ],
+            "returned_order": "ascending",
+            "requested_start": "2026-08",
+            "requested_end": "2026-08",
+            "truncated": false,
+            "sources": [
+              {
+                "url": "https://api.indec.gob.ar/v1/indice_salarios?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cunidad_de_medida&offset=0&clasificador=eq.IS+2001&nivel=eq.2&codigo=eq.120&descripcion=eq.Sector+p%C3%BAblico&indicador=eq.%C3%8Dndice+de+salarios+%28IS%29&tipo_de_indicador=eq.v_m&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+respecto+del+per%C3%ADodo+anterior&unidad_de_medida=eq.Porcentaje&periodo=gte.202608&periodo=lte.202608&limit=2",
+                "retrieved_at": "2026-11-03T05:53:25.847Z"
+              }
+            ],
+            "publication_date": null,
+            "methodology_source": "https://www.indec.gob.ar/ftp/cuadros/sociedad/cvs_metodologia.pdf",
+            "cache": {
+              "hit": false,
+              "expires_at": "2026-11-03T06:53:25.847Z"
+            },
+            "warnings": [
+              "Publication date is not supplied by this API. Current observations can be revised.",
+              "Published official percentage change; not a sum of monthly rates. The baseline identifies the measure's comparison period, not a separately retrieved index observation."
+            ],
+            "sector": "public",
+            "window": "monthly",
+            "reference_period": "2026-08",
+            "baseline_period": "2026-07",
+            "period_selection": "requested_exact",
+            "value": 2.26,
+            "official_measure": "Variación porcentual respecto del período anterior"
+          },
+          "inflation": {
+            "schema_version": "1.0",
+            "status": "ok",
+            "data_source": "current_official",
+            "series_id": "ipc.national.headline.monthly_change",
+            "frequency": "monthly",
+            "coverage": "Argentina, national",
+            "seasonal_adjustment": "not_applicable",
+            "unit": "percent",
+            "calculated": false,
+            "observations": [
+              {
+                "reference_period": "2026-08",
+                "value": 1.7,
+                "statistical_flag": null,
+                "observations": null,
+                "raw": {
+                  "clasificador": "IPC",
+                  "nivel": "Nivel General",
+                  "codigo": "0",
+                  "descripcion": "Nivel general",
+                  "indicador": "IPC base Dic16=100",
+                  "tipo_de_indicador": "v_m",
+                  "tipo_de_indicador_descripcion": "Variación porcentual respecto del período anterior",
+                  "region": "Nacional",
+                  "unidad_de_medida": "Porcentaje",
+                  "periodo": "202608",
+                  "anio": 2026,
+                  "mes": 8,
+                  "valor": 1.7,
+                  "observaciones": null,
+                  "valor_null": null
+                }
+              }
+            ],
+            "returned_order": "ascending",
+            "requested_start": "2026-08",
+            "requested_end": "2026-08",
+            "truncated": false,
+            "sources": [
+              {
+                "url": "https://api.indec.gob.ar/v1/ipc_nacional?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cregion%2Cunidad_de_medida&offset=0&clasificador=eq.IPC&nivel=eq.Nivel+General&codigo=eq.0&descripcion=eq.Nivel+general&indicador=eq.IPC+base+Dic16%3D100&tipo_de_indicador=eq.v_m&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+respecto+del+per%C3%ADodo+anterior&region=eq.Nacional&unidad_de_medida=eq.Porcentaje&periodo=gte.202608&periodo=lte.202608&limit=2",
+                "retrieved_at": "2026-11-03T05:53:27.645Z"
+              }
+            ],
+            "publication_date": null,
+            "methodology_source": "https://www.indec.gob.ar/ftp/cuadros/economia/metodologia_ipc_nacional_2019.pdf",
+            "cache": {
+              "hit": false,
+              "expires_at": "2026-11-03T06:53:27.645Z"
+            },
+            "warnings": [
+              "Publication date is not supplied by this API. Current observations can be revised."
+            ]
+          },
+          "calculated": true,
+          "real_wage_change_percent": 0.5506391347099404,
+          "growth_gap_percentage_points": 0.5599999999999998,
+          "formula": "((1 + wage_growth_percent / 100) / (1 + inflation_percent / 100) - 1) * 100",
+          "warnings": [
+            "Publication date is not supplied by this API. Current observations can be revised.",
+            "Published official percentage change; not a sum of monthly rates. The baseline identifies the measure's comparison period, not a separately retrieved index observation.",
+            "Real wage change is calculated from published, potentially rounded official rates; the percentage-point gap is a different measure."
+          ]
+        },
+        "isError": false
+      }
+    },
+    {
+      "request": {
+        "name": "accumulated_private_registered",
+        "tool": "compare_wages_inflation",
+        "args": {
+          "sector": "private_registered",
+          "window": "year_to_date",
+          "end_period": "2026-08"
+        }
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"schema_version\":\"1.0\",\"status\":\"ok\",\"data_source\":\"current_official\",\"sector\":\"private_registered\",\"window\":\"year_to_date\",\"reference_period\":\"2026-08\",\"baseline_period\":\"2025-12\",\"frequency\":\"monthly\",\"period_selection\":\"requested_exact\",\"latest_available_periods\":null,\"wages\":{\"schema_version\":\"1.0\",\"status\":\"ok\",\"data_source\":\"current_official\",\"series_id\":\"wages.private_registered.year_to_date\",\"frequency\":\"monthly\",\"coverage\":\"Argentina, national; selected wage sector\",\"seasonal_adjustment\":\"not_applicable\",\"unit\":\"percent\",\"calculated\":false,\"observations\":[{\"reference_period\":\"2026-08\",\"value\":20.36,\"statistical_flag\":null,\"observations\":null,\"raw\":{\"clasificador\":\"IS 2001\",\"nivel\":\"2\",\"codigo\":\"110\",\"descripcion\":\"Sector privado registrado\",\"indicador\":\"Índice de salarios (IS)\",\"tipo_de_indicador\":\"v_acum\",\"tipo_de_indicador_descripcion\":\"Variación porcentual acumulada desde diciembre del año anterior\",\"unidad_de_medida\":\"Porcentaje\",\"periodo\":\"202608\",\"anio\":2026,\"mes\":8,\"valor\":20.36,\"observaciones\":null,\"valor_null\":null}}],\"returned_order\":\"ascending\",\"requested_start\":\"2026-08\",\"requested_end\":\"2026-08\",\"truncated\":false,\"sources\":[{\"url\":\"https://api.indec.gob.ar/v1/indice_salarios?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cunidad_de_medida&offset=0&clasificador=eq.IS+2001&nivel=eq.2&codigo=eq.110&descripcion=eq.Sector+privado+registrado&indicador=eq.%C3%8Dndice+de+salarios+%28IS%29&tipo_de_indicador=eq.v_acum&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+acumulada+desde+diciembre+del+a%C3%B1o+anterior&unidad_de_medida=eq.Porcentaje&periodo=gte.202608&periodo=lte.202608&limit=2\",\"retrieved_at\":\"2026-11-03T05:53:26.109Z\"}],\"publication_date\":null,\"methodology_source\":\"https://www.indec.gob.ar/ftp/cuadros/sociedad/cvs_metodologia.pdf\",\"cache\":{\"hit\":false,\"expires_at\":\"2026-11-03T06:53:26.109Z\"},\"warnings\":[\"Publication date is not supplied by this API. Current observations can be revised.\",\"Published official percentage change; not a sum of monthly rates. The baseline identifies the measure's comparison period, not a separately retrieved index observation.\"],\"sector\":\"private_registered\",\"window\":\"year_to_date\",\"reference_period\":\"2026-08\",\"baseline_period\":\"2025-12\",\"period_selection\":\"requested_exact\",\"value\":20.36,\"official_measure\":\"Variación porcentual acumulada desde diciembre del año anterior\"},\"inflation\":{\"schema_version\":\"1.0\",\"status\":\"ok\",\"data_source\":\"current_official\",\"series_id\":\"ipc.national.headline.year_to_date\",\"frequency\":\"monthly\",\"coverage\":\"Argentina, national\",\"seasonal_adjustment\":\"not_applicable\",\"unit\":\"percent\",\"calculated\":false,\"observations\":[{\"reference_period\":\"2026-08\",\"value\":21.3,\"statistical_flag\":null,\"observations\":null,\"raw\":{\"clasificador\":\"IPC\",\"nivel\":\"Nivel General\",\"codigo\":\"0\",\"descripcion\":\"Nivel general\",\"indicador\":\"IPC base Dic16=100\",\"tipo_de_indicador\":\"v_acum\",\"tipo_de_indicador_descripcion\":\"Variación porcentual acumulada desde diciembre del año anterior\",\"region\":\"Nacional\",\"unidad_de_medida\":\"Porcentaje\",\"periodo\":\"202608\",\"anio\":2026,\"mes\":8,\"valor\":21.3,\"observaciones\":null,\"valor_null\":null}}],\"returned_order\":\"ascending\",\"requested_start\":\"2026-08\",\"requested_end\":\"2026-08\",\"truncated\":false,\"sources\":[{\"url\":\"https://api.indec.gob.ar/v1/ipc_nacional?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cregion%2Cunidad_de_medida&offset=0&clasificador=eq.IPC&nivel=eq.Nivel+General&codigo=eq.0&descripcion=eq.Nivel+general&indicador=eq.IPC+base+Dic16%3D100&tipo_de_indicador=eq.v_acum&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+acumulada+desde+diciembre+del+a%C3%B1o+anterior&region=eq.Nacional&unidad_de_medida=eq.Porcentaje&periodo=gte.202608&periodo=lte.202608&limit=2\",\"retrieved_at\":\"2026-11-03T05:53:27.854Z\"}],\"publication_date\":null,\"methodology_source\":\"https://www.indec.gob.ar/ftp/cuadros/economia/metodologia_ipc_nacional_2019.pdf\",\"cache\":{\"hit\":false,\"expires_at\":\"2026-11-03T06:53:27.854Z\"},\"warnings\":[\"Publication date is not supplied by this API. Current observations can be revised.\"]},\"calculated\":true,\"real_wage_change_percent\":-0.7749381698268776,\"growth_gap_percentage_points\":-0.9400000000000013,\"formula\":\"((1 + wage_growth_percent / 100) / (1 + inflation_percent / 100) - 1) * 100\",\"warnings\":[\"Publication date is not supplied by this API. Current observations can be revised.\",\"Published official percentage change; not a sum of monthly rates. The baseline identifies the measure's comparison period, not a separately retrieved index observation.\",\"Real wage change is calculated from published, potentially rounded official rates; the percentage-point gap is a different measure.\"]}"
+          }
+        ],
+        "structuredContent": {
+          "schema_version": "1.0",
+          "status": "ok",
+          "data_source": "current_official",
+          "sector": "private_registered",
+          "window": "year_to_date",
+          "reference_period": "2026-08",
+          "baseline_period": "2025-12",
+          "frequency": "monthly",
+          "period_selection": "requested_exact",
+          "latest_available_periods": null,
+          "wages": {
+            "schema_version": "1.0",
+            "status": "ok",
+            "data_source": "current_official",
+            "series_id": "wages.private_registered.year_to_date",
+            "frequency": "monthly",
+            "coverage": "Argentina, national; selected wage sector",
+            "seasonal_adjustment": "not_applicable",
+            "unit": "percent",
+            "calculated": false,
+            "observations": [
+              {
+                "reference_period": "2026-08",
+                "value": 20.36,
+                "statistical_flag": null,
+                "observations": null,
+                "raw": {
+                  "clasificador": "IS 2001",
+                  "nivel": "2",
+                  "codigo": "110",
+                  "descripcion": "Sector privado registrado",
+                  "indicador": "Índice de salarios (IS)",
+                  "tipo_de_indicador": "v_acum",
+                  "tipo_de_indicador_descripcion": "Variación porcentual acumulada desde diciembre del año anterior",
+                  "unidad_de_medida": "Porcentaje",
+                  "periodo": "202608",
+                  "anio": 2026,
+                  "mes": 8,
+                  "valor": 20.36,
+                  "observaciones": null,
+                  "valor_null": null
+                }
+              }
+            ],
+            "returned_order": "ascending",
+            "requested_start": "2026-08",
+            "requested_end": "2026-08",
+            "truncated": false,
+            "sources": [
+              {
+                "url": "https://api.indec.gob.ar/v1/indice_salarios?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cunidad_de_medida&offset=0&clasificador=eq.IS+2001&nivel=eq.2&codigo=eq.110&descripcion=eq.Sector+privado+registrado&indicador=eq.%C3%8Dndice+de+salarios+%28IS%29&tipo_de_indicador=eq.v_acum&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+acumulada+desde+diciembre+del+a%C3%B1o+anterior&unidad_de_medida=eq.Porcentaje&periodo=gte.202608&periodo=lte.202608&limit=2",
+                "retrieved_at": "2026-11-03T05:53:26.109Z"
+              }
+            ],
+            "publication_date": null,
+            "methodology_source": "https://www.indec.gob.ar/ftp/cuadros/sociedad/cvs_metodologia.pdf",
+            "cache": {
+              "hit": false,
+              "expires_at": "2026-11-03T06:53:26.109Z"
+            },
+            "warnings": [
+              "Publication date is not supplied by this API. Current observations can be revised.",
+              "Published official percentage change; not a sum of monthly rates. The baseline identifies the measure's comparison period, not a separately retrieved index observation."
+            ],
+            "sector": "private_registered",
+            "window": "year_to_date",
+            "reference_period": "2026-08",
+            "baseline_period": "2025-12",
+            "period_selection": "requested_exact",
+            "value": 20.36,
+            "official_measure": "Variación porcentual acumulada desde diciembre del año anterior"
+          },
+          "inflation": {
+            "schema_version": "1.0",
+            "status": "ok",
+            "data_source": "current_official",
+            "series_id": "ipc.national.headline.year_to_date",
+            "frequency": "monthly",
+            "coverage": "Argentina, national",
+            "seasonal_adjustment": "not_applicable",
+            "unit": "percent",
+            "calculated": false,
+            "observations": [
+              {
+                "reference_period": "2026-08",
+                "value": 21.3,
+                "statistical_flag": null,
+                "observations": null,
+                "raw": {
+                  "clasificador": "IPC",
+                  "nivel": "Nivel General",
+                  "codigo": "0",
+                  "descripcion": "Nivel general",
+                  "indicador": "IPC base Dic16=100",
+                  "tipo_de_indicador": "v_acum",
+                  "tipo_de_indicador_descripcion": "Variación porcentual acumulada desde diciembre del año anterior",
+                  "region": "Nacional",
+                  "unidad_de_medida": "Porcentaje",
+                  "periodo": "202608",
+                  "anio": 2026,
+                  "mes": 8,
+                  "valor": 21.3,
+                  "observaciones": null,
+                  "valor_null": null
+                }
+              }
+            ],
+            "returned_order": "ascending",
+            "requested_start": "2026-08",
+            "requested_end": "2026-08",
+            "truncated": false,
+            "sources": [
+              {
+                "url": "https://api.indec.gob.ar/v1/ipc_nacional?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cregion%2Cunidad_de_medida&offset=0&clasificador=eq.IPC&nivel=eq.Nivel+General&codigo=eq.0&descripcion=eq.Nivel+general&indicador=eq.IPC+base+Dic16%3D100&tipo_de_indicador=eq.v_acum&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+acumulada+desde+diciembre+del+a%C3%B1o+anterior&region=eq.Nacional&unidad_de_medida=eq.Porcentaje&periodo=gte.202608&periodo=lte.202608&limit=2",
+                "retrieved_at": "2026-11-03T05:53:27.854Z"
+              }
+            ],
+            "publication_date": null,
+            "methodology_source": "https://www.indec.gob.ar/ftp/cuadros/economia/metodologia_ipc_nacional_2019.pdf",
+            "cache": {
+              "hit": false,
+              "expires_at": "2026-11-03T06:53:27.854Z"
+            },
+            "warnings": [
+              "Publication date is not supplied by this API. Current observations can be revised."
+            ]
+          },
+          "calculated": true,
+          "real_wage_change_percent": -0.7749381698268776,
+          "growth_gap_percentage_points": -0.9400000000000013,
+          "formula": "((1 + wage_growth_percent / 100) / (1 + inflation_percent / 100) - 1) * 100",
+          "warnings": [
+            "Publication date is not supplied by this API. Current observations can be revised.",
+            "Published official percentage change; not a sum of monthly rates. The baseline identifies the measure's comparison period, not a separately retrieved index observation.",
+            "Real wage change is calculated from published, potentially rounded official rates; the percentage-point gap is a different measure."
+          ]
+        },
+        "isError": false
+      }
+    },
+    {
+      "request": {
+        "name": "private_unregistered",
+        "tool": "get_wage_growth",
+        "args": {
+          "sector": "private_unregistered",
+          "window": "year_over_year",
+          "end_period": "2026-08"
+        }
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"schema_version\":\"1.0\",\"status\":\"ok\",\"data_source\":\"current_official\",\"series_id\":\"wages.private_unregistered.year_over_year\",\"frequency\":\"monthly\",\"coverage\":\"Argentina, national; selected wage sector\",\"seasonal_adjustment\":\"not_applicable\",\"unit\":\"percent\",\"calculated\":false,\"observations\":[{\"reference_period\":\"2026-08\",\"value\":55.36,\"statistical_flag\":null,\"observations\":null,\"raw\":{\"clasificador\":\"IS 2001\",\"nivel\":\"1\",\"codigo\":\"200\",\"descripcion\":\"Total no registrado\",\"indicador\":\"Índice de salarios (IS)\",\"tipo_de_indicador\":\"v_ia\",\"tipo_de_indicador_descripcion\":\"Variación porcentual respecto del mismo período del año anterior\",\"unidad_de_medida\":\"Porcentaje\",\"periodo\":\"202608\",\"anio\":2026,\"mes\":8,\"valor\":55.36,\"observaciones\":null,\"valor_null\":null}}],\"returned_order\":\"ascending\",\"requested_start\":\"2026-08\",\"requested_end\":\"2026-08\",\"truncated\":false,\"sources\":[{\"url\":\"https://api.indec.gob.ar/v1/indice_salarios?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cunidad_de_medida&offset=0&clasificador=eq.IS+2001&nivel=eq.1&codigo=eq.200&descripcion=eq.Total+no+registrado&indicador=eq.%C3%8Dndice+de+salarios+%28IS%29&tipo_de_indicador=eq.v_ia&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+respecto+del+mismo+per%C3%ADodo+del+a%C3%B1o+anterior&unidad_de_medida=eq.Porcentaje&periodo=gte.202608&periodo=lte.202608&limit=2\",\"retrieved_at\":\"2026-11-03T05:53:25.587Z\"}],\"publication_date\":null,\"methodology_source\":\"https://www.indec.gob.ar/ftp/cuadros/sociedad/cvs_metodologia.pdf\",\"cache\":{\"hit\":false,\"expires_at\":\"2026-11-03T06:53:25.587Z\"},\"warnings\":[\"Publication date is not supplied by this API. Current observations can be revised.\",\"Published official percentage change; not a sum of monthly rates. The baseline identifies the measure's comparison period, not a separately retrieved index observation.\"],\"sector\":\"private_unregistered\",\"window\":\"year_over_year\",\"reference_period\":\"2026-08\",\"baseline_period\":\"2025-08\",\"period_selection\":\"requested_exact\",\"value\":55.36,\"official_measure\":\"Variación porcentual respecto del mismo período del año anterior\"}"
+          }
+        ],
+        "structuredContent": {
+          "schema_version": "1.0",
+          "status": "ok",
+          "data_source": "current_official",
+          "series_id": "wages.private_unregistered.year_over_year",
+          "frequency": "monthly",
+          "coverage": "Argentina, national; selected wage sector",
+          "seasonal_adjustment": "not_applicable",
+          "unit": "percent",
+          "calculated": false,
+          "observations": [
+            {
+              "reference_period": "2026-08",
+              "value": 55.36,
+              "statistical_flag": null,
+              "observations": null,
+              "raw": {
+                "clasificador": "IS 2001",
+                "nivel": "1",
+                "codigo": "200",
+                "descripcion": "Total no registrado",
+                "indicador": "Índice de salarios (IS)",
+                "tipo_de_indicador": "v_ia",
+                "tipo_de_indicador_descripcion": "Variación porcentual respecto del mismo período del año anterior",
+                "unidad_de_medida": "Porcentaje",
+                "periodo": "202608",
+                "anio": 2026,
+                "mes": 8,
+                "valor": 55.36,
+                "observaciones": null,
+                "valor_null": null
+              }
+            }
+          ],
+          "returned_order": "ascending",
+          "requested_start": "2026-08",
+          "requested_end": "2026-08",
+          "truncated": false,
+          "sources": [
+            {
+              "url": "https://api.indec.gob.ar/v1/indice_salarios?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cunidad_de_medida&offset=0&clasificador=eq.IS+2001&nivel=eq.1&codigo=eq.200&descripcion=eq.Total+no+registrado&indicador=eq.%C3%8Dndice+de+salarios+%28IS%29&tipo_de_indicador=eq.v_ia&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+respecto+del+mismo+per%C3%ADodo+del+a%C3%B1o+anterior&unidad_de_medida=eq.Porcentaje&periodo=gte.202608&periodo=lte.202608&limit=2",
+              "retrieved_at": "2026-11-03T05:53:25.587Z"
+            }
+          ],
+          "publication_date": null,
+          "methodology_source": "https://www.indec.gob.ar/ftp/cuadros/sociedad/cvs_metodologia.pdf",
+          "cache": {
+            "hit": false,
+            "expires_at": "2026-11-03T06:53:25.587Z"
+          },
+          "warnings": [
+            "Publication date is not supplied by this API. Current observations can be revised.",
+            "Published official percentage change; not a sum of monthly rates. The baseline identifies the measure's comparison period, not a separately retrieved index observation."
+          ],
+          "sector": "private_unregistered",
+          "window": "year_over_year",
+          "reference_period": "2026-08",
+          "baseline_period": "2025-08",
+          "period_selection": "requested_exact",
+          "value": 55.36,
+          "official_measure": "Variación porcentual respecto del mismo período del año anterior"
+        },
+        "isError": false
+      }
+    },
+    {
+      "request": {
+        "name": "missing_exact_month",
+        "tool": "compare_wages_inflation",
+        "args": {
+          "sector": "total",
+          "window": "year_over_year",
+          "end_period": "2026-10"
+        }
+      },
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"schema_version\":\"1.0\",\"status\":\"unavailable\",\"data_source\":\"current_official\",\"sector\":\"total\",\"window\":\"year_over_year\",\"reference_period\":\"2026-10\",\"baseline_period\":\"2025-10\",\"frequency\":\"monthly\",\"period_selection\":\"requested_exact\",\"latest_available_periods\":null,\"wages\":{\"schema_version\":\"1.0\",\"status\":\"unavailable\",\"data_source\":\"current_official\",\"series_id\":\"wages.total.year_over_year\",\"frequency\":\"monthly\",\"coverage\":\"Argentina, national; selected wage sector\",\"seasonal_adjustment\":\"not_applicable\",\"unit\":\"percent\",\"calculated\":false,\"observations\":[],\"returned_order\":\"ascending\",\"requested_start\":\"2026-10\",\"requested_end\":\"2026-10\",\"truncated\":false,\"sources\":[{\"url\":\"https://api.indec.gob.ar/v1/indice_salarios?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cunidad_de_medida&offset=0&clasificador=eq.IS+2001&nivel=eq.0&codigo=eq.0&descripcion=eq.Nivel+general&indicador=eq.%C3%8Dndice+de+salarios+%28IS%29&tipo_de_indicador=eq.v_ia&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+respecto+del+mismo+per%C3%ADodo+del+a%C3%B1o+anterior&unidad_de_medida=eq.Porcentaje&periodo=gte.202610&periodo=lte.202610&limit=2\",\"retrieved_at\":\"2026-11-03T05:53:26.171Z\"}],\"publication_date\":null,\"methodology_source\":\"https://www.indec.gob.ar/ftp/cuadros/sociedad/cvs_metodologia.pdf\",\"cache\":{\"hit\":false,\"expires_at\":\"2026-11-03T06:53:26.171Z\"},\"warnings\":[\"Publication date is not supplied by this API. Current observations can be revised.\",\"No observations are available for the requested series and period bounds.\",\"Published official percentage change; not a sum of monthly rates. The baseline identifies the measure's comparison period, not a separately retrieved index observation.\"],\"sector\":\"total\",\"window\":\"year_over_year\",\"reference_period\":\"2026-10\",\"baseline_period\":\"2025-10\",\"period_selection\":\"requested_exact\",\"value\":null,\"official_measure\":\"Variación porcentual respecto del mismo período del año anterior\"},\"inflation\":{\"schema_version\":\"1.0\",\"status\":\"unavailable\",\"data_source\":\"current_official\",\"series_id\":\"ipc.national.headline.year_over_year\",\"frequency\":\"monthly\",\"coverage\":\"Argentina, national\",\"seasonal_adjustment\":\"not_applicable\",\"unit\":\"percent\",\"calculated\":false,\"observations\":[],\"returned_order\":\"ascending\",\"requested_start\":\"2026-10\",\"requested_end\":\"2026-10\",\"truncated\":false,\"sources\":[{\"url\":\"https://api.indec.gob.ar/v1/ipc_nacional?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cregion%2Cunidad_de_medida&offset=0&clasificador=eq.IPC&nivel=eq.Nivel+General&codigo=eq.0&descripcion=eq.Nivel+general&indicador=eq.IPC+base+Dic16%3D100&tipo_de_indicador=eq.v_ia&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+respecto+del+mismo+per%C3%ADodo+del+a%C3%B1o+anterior&region=eq.Nacional&unidad_de_medida=eq.Porcentaje&periodo=gte.202610&periodo=lte.202610&limit=2\",\"retrieved_at\":\"2026-11-03T05:53:27.916Z\"}],\"publication_date\":null,\"methodology_source\":\"https://www.indec.gob.ar/ftp/cuadros/economia/metodologia_ipc_nacional_2019.pdf\",\"cache\":{\"hit\":true,\"expires_at\":\"2026-11-03T06:53:27.916Z\"},\"warnings\":[\"Publication date is not supplied by this API. Current observations can be revised.\",\"No observations are available for the requested series and period bounds.\"]},\"calculated\":true,\"real_wage_change_percent\":null,\"growth_gap_percentage_points\":null,\"formula\":\"((1 + wage_growth_percent / 100) / (1 + inflation_percent / 100) - 1) * 100\",\"warnings\":[\"Publication date is not supplied by this API. Current observations can be revised.\",\"No observations are available for the requested series and period bounds.\",\"Published official percentage change; not a sum of monthly rates. The baseline identifies the measure's comparison period, not a separately retrieved index observation.\",\"Real wage change is calculated from published, potentially rounded official rates; the percentage-point gap is a different measure.\",\"A same-period wage/inflation comparison is unavailable; missing values are not zero.\"]}"
+          }
+        ],
+        "structuredContent": {
+          "schema_version": "1.0",
+          "status": "unavailable",
+          "data_source": "current_official",
+          "sector": "total",
+          "window": "year_over_year",
+          "reference_period": "2026-10",
+          "baseline_period": "2025-10",
+          "frequency": "monthly",
+          "period_selection": "requested_exact",
+          "latest_available_periods": null,
+          "wages": {
+            "schema_version": "1.0",
+            "status": "unavailable",
+            "data_source": "current_official",
+            "series_id": "wages.total.year_over_year",
+            "frequency": "monthly",
+            "coverage": "Argentina, national; selected wage sector",
+            "seasonal_adjustment": "not_applicable",
+            "unit": "percent",
+            "calculated": false,
+            "observations": [],
+            "returned_order": "ascending",
+            "requested_start": "2026-10",
+            "requested_end": "2026-10",
+            "truncated": false,
+            "sources": [
+              {
+                "url": "https://api.indec.gob.ar/v1/indice_salarios?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cunidad_de_medida&offset=0&clasificador=eq.IS+2001&nivel=eq.0&codigo=eq.0&descripcion=eq.Nivel+general&indicador=eq.%C3%8Dndice+de+salarios+%28IS%29&tipo_de_indicador=eq.v_ia&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+respecto+del+mismo+per%C3%ADodo+del+a%C3%B1o+anterior&unidad_de_medida=eq.Porcentaje&periodo=gte.202610&periodo=lte.202610&limit=2",
+                "retrieved_at": "2026-11-03T05:53:26.171Z"
+              }
+            ],
+            "publication_date": null,
+            "methodology_source": "https://www.indec.gob.ar/ftp/cuadros/sociedad/cvs_metodologia.pdf",
+            "cache": {
+              "hit": false,
+              "expires_at": "2026-11-03T06:53:26.171Z"
+            },
+            "warnings": [
+              "Publication date is not supplied by this API. Current observations can be revised.",
+              "No observations are available for the requested series and period bounds.",
+              "Published official percentage change; not a sum of monthly rates. The baseline identifies the measure's comparison period, not a separately retrieved index observation."
+            ],
+            "sector": "total",
+            "window": "year_over_year",
+            "reference_period": "2026-10",
+            "baseline_period": "2025-10",
+            "period_selection": "requested_exact",
+            "value": null,
+            "official_measure": "Variación porcentual respecto del mismo período del año anterior"
+          },
+          "inflation": {
+            "schema_version": "1.0",
+            "status": "unavailable",
+            "data_source": "current_official",
+            "series_id": "ipc.national.headline.year_over_year",
+            "frequency": "monthly",
+            "coverage": "Argentina, national",
+            "seasonal_adjustment": "not_applicable",
+            "unit": "percent",
+            "calculated": false,
+            "observations": [],
+            "returned_order": "ascending",
+            "requested_start": "2026-10",
+            "requested_end": "2026-10",
+            "truncated": false,
+            "sources": [
+              {
+                "url": "https://api.indec.gob.ar/v1/ipc_nacional?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cregion%2Cunidad_de_medida&offset=0&clasificador=eq.IPC&nivel=eq.Nivel+General&codigo=eq.0&descripcion=eq.Nivel+general&indicador=eq.IPC+base+Dic16%3D100&tipo_de_indicador=eq.v_ia&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+respecto+del+mismo+per%C3%ADodo+del+a%C3%B1o+anterior&region=eq.Nacional&unidad_de_medida=eq.Porcentaje&periodo=gte.202610&periodo=lte.202610&limit=2",
+                "retrieved_at": "2026-11-03T05:53:27.916Z"
+              }
+            ],
+            "publication_date": null,
+            "methodology_source": "https://www.indec.gob.ar/ftp/cuadros/economia/metodologia_ipc_nacional_2019.pdf",
+            "cache": {
+              "hit": true,
+              "expires_at": "2026-11-03T06:53:27.916Z"
+            },
+            "warnings": [
+              "Publication date is not supplied by this API. Current observations can be revised.",
+              "No observations are available for the requested series and period bounds."
+            ]
+          },
+          "calculated": true,
+          "real_wage_change_percent": null,
+          "growth_gap_percentage_points": null,
+          "formula": "((1 + wage_growth_percent / 100) / (1 + inflation_percent / 100) - 1) * 100",
+          "warnings": [
+            "Publication date is not supplied by this API. Current observations can be revised.",
+            "No observations are available for the requested series and period bounds.",
+            "Published official percentage change; not a sum of monthly rates. The baseline identifies the measure's comparison period, not a separately retrieved index observation.",
+            "Real wage change is calculated from published, potentially rounded official rates; the percentage-point gap is a different measure.",
+            "A same-period wage/inflation comparison is unavailable; missing values are not zero."
+          ]
+        },
+        "isError": false
+      }
+    }
+  ]
+}

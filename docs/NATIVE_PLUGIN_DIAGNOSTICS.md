@@ -17,7 +17,9 @@ The hosted code is published privately through Sites. This is the same server th
 | Authenticated native data call | Verified through the installed INDEC MCP tools after runtime fix |
 | Hosted D1 cache | Verified cache hit with unchanged original retrieval timestamp |
 | Exact unavailable month | 2026-10 query returned unavailable, without an older-month substitution |
-| Remaining wage tools | Both return the real upstream 404 |
+| Wage tools | Earlier 404 no longer reproduces; both now return real data/calculations through the hosted plugin |
+
+The wage-enabled deployment and seven successful native verification cases from 2026-11-03 are recorded in `examples/native-wages-2026-11-03T05-54-02.780Z.json`; see DEPLOYMENT.md. Original 2026-11-02 samples retain the earlier 404 observations rather than rewriting that evidence.
 
 No conclusion about successful hosted data retrieval is drawn from a matching web answer. Publication dates or schedules mentioned by a browsing answer are not metadata supplied by this API.
 

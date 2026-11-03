@@ -8,7 +8,7 @@ Public name: **INDEC MCP**. English subtitle: **Official Argentina statistics**.
 
 All six V0 tools have passed actual HTTP MCP client calls against authenticated INDEC data. Inflation, wages, baskets, activity and unemployment have live verified mappings. The wage endpoint returned 404 during earlier checks but became reachable on 2026-11-03; all 16 reviewed wage series now return verified data. The current wage schema differs from the original supplied specification: see [wage verification](docs/WAGES.md). Public directory approval remains pending.
 
-The private Sites deployment and native plugin creation/installation are verified. Real authenticated calls through the installed INDEC MCP plugin return official inflation, basket, unemployment and activity observations. Hosted cache hits retain the original retrieval time, and an unavailable exact month stays unavailable. See [deployment verification](docs/DEPLOYMENT.md) and the native Sites recording under `docs/examples/`.
+The private Sites deployment and native plugin creation/installation are verified. Real authenticated calls through the installed INDEC MCP plugin return official inflation, wages, basket, unemployment and activity observations, plus same-period wage/inflation comparisons. Hosted cache hits retain the original retrieval time, and an unavailable exact month stays unavailable. See [deployment verification](docs/DEPLOYMENT.md) and the native recordings under `docs/examples/`.
 
 The standalone GitHub repository is `albertcapacitacion/indecmcp` (existing name retained by user approval); the package identifier is `indec-mcp`. It has no dependency on the newspaper's editorial system.
 

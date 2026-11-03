@@ -23,4 +23,6 @@ Run `npm run test:live -- --record` for full real tool requests/responses, inclu
 
 The wage endpoint became reachable on 2026-11-03. The new `examples/live-2026-11-03T05-49-24.663Z.json` contains successful wage and same-period comparison results plus all 16 wage mappings. Fixture tests remain synthetic; the new recording is actual HTTP MCP integration evidence. WAGES.md documents the verified schema change and calculation rules.
 
+`examples/native-wages-2026-11-03T05-54-02.780Z.json` records seven actual calls through the deployed Sites-created plugin: both wage tools, same-period annual/monthly/accumulated comparisons, the unregistered sector, a cache hit with preserved retrieval metadata and an unavailable exact month.
+
 `examples/native-sites-2026-11-02T23-30-14.749Z.json` records actual calls through the installed Sites-created INDEC MCP plugin. It includes the successful latest IPC call, a hosted cache hit, official history/basket/activity/unemployment results, an unavailable exact month and the two actual wage endpoint failures. This establishes deployed integration separately from the local HTTP client recording.

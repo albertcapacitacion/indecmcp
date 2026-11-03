@@ -29,3 +29,5 @@ Growth tools return official published measures directly. The comparison matches
 With no requested end_period, the tool takes the earlier of the latest wage and IPC reference months and requires that exact month on both sides. It does not find an older non-null result if data at the cutoff are missing. The output reports latest_available_periods and the period-selection rule explicitly.
 
 New local integration evidence: `examples/live-2026-11-03T05-49-24.663Z.json` contains 24 real MCP calls, including all six tools and all 16 wage mappings. Earlier recordings are preserved as evidence of what actually happened at those times, including the 404s; they are not replaced or reinterpreted as current availability.
+
+Hosted evidence: `examples/native-wages-2026-11-03T05-54-02.780Z.json` contains seven real calls through the installed native plugin. Both wage tools succeeded, including annual alignment to August 2026 when IPC had September data, monthly and accumulated comparisons, the unregistered sector, cache reuse without a new retrieval time, and an unavailable October-only comparison. The original Site/plugin identity, secret and access controls were preserved.

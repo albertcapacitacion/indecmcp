@@ -5,6 +5,7 @@
 - A standalone console curl check found the documented wage endpoint reachable, despite earlier authenticated 404s. Minimal and exact application queries both succeeded. The earlier response was evidence of an observation at that time, not a permanent endpoint state; rechecking the simplest request prevented treating it as a lasting blocker.
 - The rendered official documentation now types wage values as number|null while the retained supplied OpenAPI file says string|null. Live numeric rows confirmed the new contract. The original specification and earlier integration samples remain untouched; the current override and its evidence are explicit in WAGES.md.
 - The two wage tools reuse the existing bounded series client and shared cache. Comparisons align the exact reference month/window and use published official rates, with real growth distinct from a percentage-point gap. Twenty-four real local HTTP MCP calls verified all six tools and all 16 wage mappings; synthetic tests also cover publication lags, nulls and unavailable exact months.
+- The same implementation passed seven native hosted calls, covering both wage tools, annual/monthly/accumulated windows, the unregistered sector, a persistent D1 cache hit and an unavailable exact month. No new plugin, secret rotation or authentication workaround was needed.
 
 ## 2026-11-02 — first live vertical slice
 
