@@ -8,7 +8,7 @@ Public name: **INDEC MCP**. English subtitle: **Official Argentina statistics**.
 
 The first national monthly inflation slice has passed an actual HTTP MCP client call against authenticated INDEC data. All six V0 tool names are exposed. Inflation, baskets, activity and unemployment have live verified mappings. **Wage growth and wage/inflation comparison are blocked:** `/indice_salarios` from the supplied specification returns HTTP 404. Those tools return explicit errors; they do not produce numeric results or use another source. This is not a claim of a complete V0 or public directory approval.
 
-The private Sites deployment and native plugin creation/installation are verified. Native discovery and tool listing return HTTP 200. An authenticated data call from ChatGPT/Codex remains unresolved: the user's selected-plugin test fell back to browsing, with no data tool request reaching the server. See [deployment verification](docs/DEPLOYMENT.md).
+The private Sites deployment and native plugin creation/installation are verified. Real authenticated calls through the installed INDEC MCP plugin return official inflation, basket, unemployment and activity observations. Hosted cache hits retain the original retrieval time, and an unavailable exact month stays unavailable. See [deployment verification](docs/DEPLOYMENT.md) and the native Sites recording under `docs/examples/`.
 
 The standalone GitHub repository is `albertcapacitacion/indecmcp` (existing name retained by user approval); the package identifier is `indec-mcp`. It has no dependency on the newspaper's editorial system.
 

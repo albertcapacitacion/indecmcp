@@ -1,0 +1,886 @@
+{
+  "verification": "REAL NATIVE SITES PLUGIN TOOL CALLS",
+  "purpose": "Integration evidence; not a newspaper publication snapshot",
+  "site": "https://indec-mcp.albertcapacitaciondi.chatgpt.site",
+  "plugin_id": "plugin_asdk_app_sites_32caa3104d248191873ae37d7e75653d",
+  "first_call": {
+    "schema_version": "1.0",
+    "status": "ok",
+    "data_source": "current_official",
+    "series_id": "ipc.national.headline.monthly_change",
+    "reference_period": "2026-09",
+    "frequency": "monthly",
+    "coverage": "Argentina, national",
+    "seasonal_adjustment": "not_applicable",
+    "value": 1.9,
+    "unit": "percent",
+    "calculated": false,
+    "official_dimensions": {
+      "clasificador": "IPC",
+      "nivel": "Nivel General",
+      "codigo": "0",
+      "descripcion": "Nivel general",
+      "indicador": "IPC base Dic16=100",
+      "tipo_de_indicador": "v_m",
+      "tipo_de_indicador_descripcion": "Variación porcentual respecto del período anterior",
+      "region": "Nacional",
+      "unidad_de_medida": "Porcentaje"
+    },
+    "raw_observation": {
+      "clasificador": "IPC",
+      "nivel": "Nivel General",
+      "codigo": "0",
+      "descripcion": "Nivel general",
+      "indicador": "IPC base Dic16=100",
+      "tipo_de_indicador": "v_m",
+      "tipo_de_indicador_descripcion": "Variación porcentual respecto del período anterior",
+      "region": "Nacional",
+      "unidad_de_medida": "Porcentaje",
+      "periodo": "202609",
+      "anio": 2026,
+      "mes": 9,
+      "valor": 1.9,
+      "observaciones": null,
+      "valor_null": null
+    },
+    "source": "https://api.indec.gob.ar/v1/ipc_nacional?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cregion%2Cunidad_de_medida&limit=2&offset=0&clasificador=eq.IPC&nivel=eq.Nivel+General&codigo=eq.0&descripcion=eq.Nivel+general&indicador=eq.IPC+base+Dic16%3D100&tipo_de_indicador=eq.v_m&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+respecto+del+per%C3%ADodo+anterior&region=eq.Nacional&unidad_de_medida=eq.Porcentaje",
+    "methodology_source": "https://www.indec.gob.ar/ftp/cuadros/economia/metodologia_ipc_nacional_2019.pdf",
+    "retrieved_at": "2026-11-02T23:30:14.749Z",
+    "publication_date": null,
+    "cache": {
+      "hit": false,
+      "expires_at": "2026-11-03T00:30:14.749Z"
+    },
+    "warnings": [
+      "Latest available reference month; this is not necessarily the previous calendar month.",
+      "Publication date is not supplied by this API."
+    ]
+  },
+  "checks": [
+    {
+      "label": "cache",
+      "isError": false,
+      "data": {
+        "schema_version": "1.0",
+        "status": "ok",
+        "data_source": "current_official",
+        "series_id": "ipc.national.headline.monthly_change",
+        "reference_period": "2026-09",
+        "frequency": "monthly",
+        "coverage": "Argentina, national",
+        "seasonal_adjustment": "not_applicable",
+        "value": 1.9,
+        "unit": "percent",
+        "calculated": false,
+        "official_dimensions": {
+          "clasificador": "IPC",
+          "nivel": "Nivel General",
+          "codigo": "0",
+          "descripcion": "Nivel general",
+          "indicador": "IPC base Dic16=100",
+          "tipo_de_indicador": "v_m",
+          "tipo_de_indicador_descripcion": "Variación porcentual respecto del período anterior",
+          "region": "Nacional",
+          "unidad_de_medida": "Porcentaje"
+        },
+        "raw_observation": {
+          "clasificador": "IPC",
+          "nivel": "Nivel General",
+          "codigo": "0",
+          "descripcion": "Nivel general",
+          "indicador": "IPC base Dic16=100",
+          "tipo_de_indicador": "v_m",
+          "tipo_de_indicador_descripcion": "Variación porcentual respecto del período anterior",
+          "region": "Nacional",
+          "unidad_de_medida": "Porcentaje",
+          "periodo": "202609",
+          "anio": 2026,
+          "mes": 9,
+          "valor": 1.9,
+          "observaciones": null,
+          "valor_null": null
+        },
+        "source": "https://api.indec.gob.ar/v1/ipc_nacional?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cregion%2Cunidad_de_medida&limit=2&offset=0&clasificador=eq.IPC&nivel=eq.Nivel+General&codigo=eq.0&descripcion=eq.Nivel+general&indicador=eq.IPC+base+Dic16%3D100&tipo_de_indicador=eq.v_m&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+respecto+del+per%C3%ADodo+anterior&region=eq.Nacional&unidad_de_medida=eq.Porcentaje",
+        "methodology_source": "https://www.indec.gob.ar/ftp/cuadros/economia/metodologia_ipc_nacional_2019.pdf",
+        "retrieved_at": "2026-11-02T23:30:14.749Z",
+        "publication_date": null,
+        "cache": {
+          "hit": true,
+          "expires_at": "2026-11-03T00:30:14.749Z"
+        },
+        "warnings": [
+          "Latest available reference month; this is not necessarily the previous calendar month.",
+          "Publication date is not supplied by this API."
+        ]
+      }
+    },
+    {
+      "label": "history",
+      "isError": false,
+      "data": {
+        "schema_version": "1.0",
+        "status": "ok",
+        "data_source": "current_official",
+        "series_id": "ipc.national.headline.year_to_date",
+        "frequency": "monthly",
+        "coverage": "Argentina, national",
+        "seasonal_adjustment": "not_applicable",
+        "unit": "percent",
+        "calculated": false,
+        "observations": [
+          {
+            "reference_period": "2026-01",
+            "value": 2.9,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "clasificador": "IPC",
+              "nivel": "Nivel General",
+              "codigo": "0",
+              "descripcion": "Nivel general",
+              "indicador": "IPC base Dic16=100",
+              "tipo_de_indicador": "v_acum",
+              "tipo_de_indicador_descripcion": "Variación porcentual acumulada desde diciembre del año anterior",
+              "region": "Nacional",
+              "unidad_de_medida": "Porcentaje",
+              "periodo": "202601",
+              "anio": 2026,
+              "mes": 1,
+              "valor": 2.9,
+              "observaciones": null,
+              "valor_null": null
+            }
+          },
+          {
+            "reference_period": "2026-02",
+            "value": 5.9,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "clasificador": "IPC",
+              "nivel": "Nivel General",
+              "codigo": "0",
+              "descripcion": "Nivel general",
+              "indicador": "IPC base Dic16=100",
+              "tipo_de_indicador": "v_acum",
+              "tipo_de_indicador_descripcion": "Variación porcentual acumulada desde diciembre del año anterior",
+              "region": "Nacional",
+              "unidad_de_medida": "Porcentaje",
+              "periodo": "202602",
+              "anio": 2026,
+              "mes": 2,
+              "valor": 5.9,
+              "observaciones": null,
+              "valor_null": null
+            }
+          },
+          {
+            "reference_period": "2026-03",
+            "value": 9.4,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "clasificador": "IPC",
+              "nivel": "Nivel General",
+              "codigo": "0",
+              "descripcion": "Nivel general",
+              "indicador": "IPC base Dic16=100",
+              "tipo_de_indicador": "v_acum",
+              "tipo_de_indicador_descripcion": "Variación porcentual acumulada desde diciembre del año anterior",
+              "region": "Nacional",
+              "unidad_de_medida": "Porcentaje",
+              "periodo": "202603",
+              "anio": 2026,
+              "mes": 3,
+              "valor": 9.4,
+              "observaciones": null,
+              "valor_null": null
+            }
+          },
+          {
+            "reference_period": "2026-04",
+            "value": 12.3,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "clasificador": "IPC",
+              "nivel": "Nivel General",
+              "codigo": "0",
+              "descripcion": "Nivel general",
+              "indicador": "IPC base Dic16=100",
+              "tipo_de_indicador": "v_acum",
+              "tipo_de_indicador_descripcion": "Variación porcentual acumulada desde diciembre del año anterior",
+              "region": "Nacional",
+              "unidad_de_medida": "Porcentaje",
+              "periodo": "202604",
+              "anio": 2026,
+              "mes": 4,
+              "valor": 12.3,
+              "observaciones": null,
+              "valor_null": null
+            }
+          },
+          {
+            "reference_period": "2026-05",
+            "value": 14.7,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "clasificador": "IPC",
+              "nivel": "Nivel General",
+              "codigo": "0",
+              "descripcion": "Nivel general",
+              "indicador": "IPC base Dic16=100",
+              "tipo_de_indicador": "v_acum",
+              "tipo_de_indicador_descripcion": "Variación porcentual acumulada desde diciembre del año anterior",
+              "region": "Nacional",
+              "unidad_de_medida": "Porcentaje",
+              "periodo": "202605",
+              "anio": 2026,
+              "mes": 5,
+              "valor": 14.7,
+              "observaciones": null,
+              "valor_null": null
+            }
+          },
+          {
+            "reference_period": "2026-06",
+            "value": 16.8,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "clasificador": "IPC",
+              "nivel": "Nivel General",
+              "codigo": "0",
+              "descripcion": "Nivel general",
+              "indicador": "IPC base Dic16=100",
+              "tipo_de_indicador": "v_acum",
+              "tipo_de_indicador_descripcion": "Variación porcentual acumulada desde diciembre del año anterior",
+              "region": "Nacional",
+              "unidad_de_medida": "Porcentaje",
+              "periodo": "202606",
+              "anio": 2026,
+              "mes": 6,
+              "valor": 16.8,
+              "observaciones": null,
+              "valor_null": null
+            }
+          },
+          {
+            "reference_period": "2026-07",
+            "value": 19.3,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "clasificador": "IPC",
+              "nivel": "Nivel General",
+              "codigo": "0",
+              "descripcion": "Nivel general",
+              "indicador": "IPC base Dic16=100",
+              "tipo_de_indicador": "v_acum",
+              "tipo_de_indicador_descripcion": "Variación porcentual acumulada desde diciembre del año anterior",
+              "region": "Nacional",
+              "unidad_de_medida": "Porcentaje",
+              "periodo": "202607",
+              "anio": 2026,
+              "mes": 7,
+              "valor": 19.3,
+              "observaciones": null,
+              "valor_null": null
+            }
+          },
+          {
+            "reference_period": "2026-08",
+            "value": 21.3,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "clasificador": "IPC",
+              "nivel": "Nivel General",
+              "codigo": "0",
+              "descripcion": "Nivel general",
+              "indicador": "IPC base Dic16=100",
+              "tipo_de_indicador": "v_acum",
+              "tipo_de_indicador_descripcion": "Variación porcentual acumulada desde diciembre del año anterior",
+              "region": "Nacional",
+              "unidad_de_medida": "Porcentaje",
+              "periodo": "202608",
+              "anio": 2026,
+              "mes": 8,
+              "valor": 21.3,
+              "observaciones": null,
+              "valor_null": null
+            }
+          },
+          {
+            "reference_period": "2026-09",
+            "value": 23.6,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "clasificador": "IPC",
+              "nivel": "Nivel General",
+              "codigo": "0",
+              "descripcion": "Nivel general",
+              "indicador": "IPC base Dic16=100",
+              "tipo_de_indicador": "v_acum",
+              "tipo_de_indicador_descripcion": "Variación porcentual acumulada desde diciembre del año anterior",
+              "region": "Nacional",
+              "unidad_de_medida": "Porcentaje",
+              "periodo": "202609",
+              "anio": 2026,
+              "mes": 9,
+              "valor": 23.6,
+              "observaciones": null,
+              "valor_null": null
+            }
+          }
+        ],
+        "returned_order": "ascending",
+        "requested_start": "2026-01",
+        "requested_end": "2026-09",
+        "truncated": false,
+        "sources": [
+          {
+            "url": "https://api.indec.gob.ar/v1/ipc_nacional?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cregion%2Cunidad_de_medida&offset=0&clasificador=eq.IPC&nivel=eq.Nivel+General&codigo=eq.0&descripcion=eq.Nivel+general&indicador=eq.IPC+base+Dic16%3D100&tipo_de_indicador=eq.v_acum&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+acumulada+desde+diciembre+del+a%C3%B1o+anterior&region=eq.Nacional&unidad_de_medida=eq.Porcentaje&periodo=gte.202601&periodo=lte.202609&limit=13",
+            "retrieved_at": "2026-11-02T23:30:25.043Z"
+          }
+        ],
+        "publication_date": null,
+        "methodology_source": "https://www.indec.gob.ar/ftp/cuadros/economia/metodologia_ipc_nacional_2019.pdf",
+        "cache": {
+          "hit": false,
+          "expires_at": "2026-11-03T00:30:25.043Z"
+        },
+        "warnings": [
+          "Publication date is not supplied by this API. Current observations can be revised."
+        ]
+      }
+    },
+    {
+      "label": "missing_calendar_month",
+      "isError": false,
+      "data": {
+        "schema_version": "1.0",
+        "status": "unavailable",
+        "data_source": "current_official",
+        "series_id": "ipc.national.headline.monthly_change",
+        "frequency": "monthly",
+        "coverage": "Argentina, national",
+        "seasonal_adjustment": "not_applicable",
+        "unit": "percent",
+        "calculated": false,
+        "observations": [],
+        "returned_order": "ascending",
+        "requested_start": "2026-10",
+        "requested_end": "2026-10",
+        "truncated": false,
+        "sources": [
+          {
+            "url": "https://api.indec.gob.ar/v1/ipc_nacional?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cregion%2Cunidad_de_medida&offset=0&clasificador=eq.IPC&nivel=eq.Nivel+General&codigo=eq.0&descripcion=eq.Nivel+general&indicador=eq.IPC+base+Dic16%3D100&tipo_de_indicador=eq.v_m&tipo_de_indicador_descripcion=eq.Variaci%C3%B3n+porcentual+respecto+del+per%C3%ADodo+anterior&region=eq.Nacional&unidad_de_medida=eq.Porcentaje&periodo=gte.202610&periodo=lte.202610&limit=2",
+            "retrieved_at": "2026-11-02T23:30:23.986Z"
+          }
+        ],
+        "publication_date": null,
+        "methodology_source": "https://www.indec.gob.ar/ftp/cuadros/economia/metodologia_ipc_nacional_2019.pdf",
+        "cache": {
+          "hit": false,
+          "expires_at": "2026-11-03T00:30:23.986Z"
+        },
+        "warnings": [
+          "Publication date is not supplied by this API. Current observations can be revised.",
+          "No observations are available for the requested series and period bounds."
+        ]
+      }
+    },
+    {
+      "label": "basket",
+      "isError": false,
+      "data": {
+        "schema_version": "1.0",
+        "status": "ok",
+        "data_source": "current_official",
+        "series_id": "basket.gba.cbt.adult_equivalent",
+        "frequency": "monthly",
+        "coverage": "Gran Buenos Aires, per adult equivalent",
+        "seasonal_adjustment": "not_applicable",
+        "unit": "ARS",
+        "calculated": false,
+        "observations": [
+          {
+            "reference_period": "2026-09",
+            "value": 528318.67,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "clasificador": "CBA y CBT",
+              "nivel": "Adulto equivalente",
+              "codigo": "CBT",
+              "descripcion": "Canasta Basica Total",
+              "indicador": "Canasta",
+              "tipo_de_indicador": "CBT",
+              "tipo_de_indicador_descripcion": "Valores mensuales por adulto equivalente, expresados en pesos",
+              "region": "GBA",
+              "unidad_de_medida": "Pesos argentinos",
+              "periodo": "202609",
+              "anio": 2026,
+              "mes": 9,
+              "valor": 528318.67,
+              "observaciones": null,
+              "valor_null": null
+            }
+          }
+        ],
+        "returned_order": "ascending",
+        "requested_start": null,
+        "requested_end": null,
+        "truncated": true,
+        "sources": [
+          {
+            "url": "https://api.indec.gob.ar/v1/valorizacion_canastas_cba_cbt?order=periodo.desc%2Cclasificador%2Cnivel%2Ccodigo%2Cdescripcion%2Canio%2Cmes%2Cindicador%2Ctipo_de_indicador%2Ctipo_de_indicador_descripcion%2Cregion%2Cunidad_de_medida&offset=0&clasificador=eq.CBA+y+CBT&nivel=eq.Adulto+equivalente&codigo=eq.CBT&descripcion=eq.Canasta+Basica+Total&indicador=eq.Canasta&tipo_de_indicador=eq.CBT&tipo_de_indicador_descripcion=eq.Valores+mensuales+por+adulto+equivalente%2C+expresados+en+pesos&region=eq.GBA&unidad_de_medida=eq.Pesos+argentinos&limit=2",
+            "retrieved_at": "2026-11-02T23:30:24.135Z"
+          }
+        ],
+        "publication_date": null,
+        "methodology_source": "https://www.indec.gob.ar/ftp/cuadros/sociedad/EPH_metodologia_22_pobreza.pdf",
+        "cache": {
+          "hit": false,
+          "expires_at": "2026-11-03T00:30:24.135Z"
+        },
+        "warnings": [
+          "Publication date is not supplied by this API. Current observations can be revised.",
+          "Only the most recent observations within the requested bounds and limit are returned."
+        ]
+      }
+    },
+    {
+      "label": "unemployment",
+      "isError": false,
+      "data": {
+        "schema_version": "1.0",
+        "status": "ok",
+        "data_source": "current_official",
+        "series_id": "unemployment.eph.31_agglomerations",
+        "frequency": "quarterly",
+        "coverage": "EPH: 31 urban agglomerations; not the entire national population",
+        "seasonal_adjustment": "not_applicable",
+        "unit": "percent",
+        "calculated": false,
+        "observations": [
+          {
+            "reference_period": "2025-Q3",
+            "value": 6.6,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "periodo": "20253T",
+              "anio": 2025,
+              "trimestre": 3,
+              "area_geografica_nom": "T_31_A",
+              "area_geografica_cod": null,
+              "tasa_de_desocupacion": 6.6,
+              "observaciones": null,
+              "area_geografica_cod_null": null,
+              "tasa_de_actividad": 48.6,
+              "tasa_de_actividad_null": null,
+              "tasa_de_empleo": 45.4,
+              "tasa_de_empleo_null": null,
+              "tasa_de_empleo_formal": 25.7,
+              "tasa_de_empleo_formal_null": null,
+              "tasa_de_empleo_informal": 19.7,
+              "tasa_de_empleo_informal_null": null,
+              "tasa_de_desocupacion_null": null,
+              "tasa_de_ocupacion_demandante": 16.1,
+              "tasa_de_ocupacion_demandante_null": null,
+              "tasa_de_subocupacion": 10.9,
+              "tasa_de_subocupacion_null": null,
+              "tasa_de_subocupacion_demandante": 7.3,
+              "tasa_de_subocupacion_demandante_null": null,
+              "tasa_de_subocupacion_no_demandante": 3.6,
+              "tasa_de_subocupacion_no_demandante_null": null,
+              "observaciones_null": null
+            }
+          },
+          {
+            "reference_period": "2025-Q4",
+            "value": 7.5,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "periodo": "20254T",
+              "anio": 2025,
+              "trimestre": 4,
+              "area_geografica_nom": "T_31_A",
+              "area_geografica_cod": null,
+              "tasa_de_desocupacion": 7.5,
+              "observaciones": null,
+              "area_geografica_cod_null": null,
+              "tasa_de_actividad": 48.6,
+              "tasa_de_actividad_null": null,
+              "tasa_de_empleo": 45,
+              "tasa_de_empleo_null": null,
+              "tasa_de_empleo_formal": 25.6,
+              "tasa_de_empleo_formal_null": null,
+              "tasa_de_empleo_informal": 19.3,
+              "tasa_de_empleo_informal_null": null,
+              "tasa_de_desocupacion_null": null,
+              "tasa_de_ocupacion_demandante": 16.5,
+              "tasa_de_ocupacion_demandante_null": null,
+              "tasa_de_subocupacion": 11.3,
+              "tasa_de_subocupacion_null": null,
+              "tasa_de_subocupacion_demandante": 7.8,
+              "tasa_de_subocupacion_demandante_null": null,
+              "tasa_de_subocupacion_no_demandante": 3.6,
+              "tasa_de_subocupacion_no_demandante_null": null,
+              "observaciones_null": null
+            }
+          },
+          {
+            "reference_period": "2026-Q1",
+            "value": 7.8,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "periodo": "20261T",
+              "anio": 2026,
+              "trimestre": 1,
+              "area_geografica_nom": "T_31_A",
+              "area_geografica_cod": null,
+              "tasa_de_desocupacion": 7.8,
+              "observaciones": null,
+              "area_geografica_cod_null": null,
+              "tasa_de_actividad": 48.6,
+              "tasa_de_actividad_null": null,
+              "tasa_de_empleo": 44.8,
+              "tasa_de_empleo_null": null,
+              "tasa_de_empleo_formal": 24.9,
+              "tasa_de_empleo_formal_null": null,
+              "tasa_de_empleo_informal": 19.8,
+              "tasa_de_empleo_informal_null": null,
+              "tasa_de_desocupacion_null": null,
+              "tasa_de_ocupacion_demandante": 15.8,
+              "tasa_de_ocupacion_demandante_null": null,
+              "tasa_de_subocupacion": 11.1,
+              "tasa_de_subocupacion_null": null,
+              "tasa_de_subocupacion_demandante": 7.5,
+              "tasa_de_subocupacion_demandante_null": null,
+              "tasa_de_subocupacion_no_demandante": 3.6,
+              "tasa_de_subocupacion_no_demandante_null": null,
+              "observaciones_null": null
+            }
+          },
+          {
+            "reference_period": "2026-Q2",
+            "value": 7.9,
+            "statistical_flag": null,
+            "observations": "Dato provisorio",
+            "raw": {
+              "periodo": "20262T",
+              "anio": 2026,
+              "trimestre": 2,
+              "area_geografica_nom": "T_31_A",
+              "area_geografica_cod": null,
+              "tasa_de_desocupacion": 7.9,
+              "observaciones": "Dato provisorio",
+              "area_geografica_cod_null": null,
+              "tasa_de_actividad": 48.9,
+              "tasa_de_actividad_null": null,
+              "tasa_de_empleo": 45,
+              "tasa_de_empleo_null": null,
+              "tasa_de_empleo_formal": 24.7,
+              "tasa_de_empleo_formal_null": null,
+              "tasa_de_empleo_informal": 20.2,
+              "tasa_de_empleo_informal_null": null,
+              "tasa_de_desocupacion_null": null,
+              "tasa_de_ocupacion_demandante": 16.9,
+              "tasa_de_ocupacion_demandante_null": null,
+              "tasa_de_subocupacion": 11.5,
+              "tasa_de_subocupacion_null": null,
+              "tasa_de_subocupacion_demandante": 8,
+              "tasa_de_subocupacion_demandante_null": null,
+              "tasa_de_subocupacion_no_demandante": 3.4,
+              "tasa_de_subocupacion_no_demandante_null": null,
+              "observaciones_null": null
+            }
+          }
+        ],
+        "returned_order": "ascending",
+        "requested_start": null,
+        "requested_end": null,
+        "truncated": true,
+        "sources": [
+          {
+            "url": "https://api.indec.gob.ar/v1/mercado_trabajo_eph?order=periodo.desc%2Carea_geografica_nom&offset=0&area_geografica_nom=eq.T_31_A&limit=5",
+            "retrieved_at": "2026-11-02T23:30:24.820Z"
+          }
+        ],
+        "publication_date": null,
+        "methodology_source": "https://www.indec.gob.ar/ftp/cuadros/sociedad/metodologia_eph_continua.pdf",
+        "cache": {
+          "hit": false,
+          "expires_at": "2026-11-03T00:30:24.820Z"
+        },
+        "warnings": [
+          "Publication date is not supplied by this API. Current observations can be revised.",
+          "Only the most recent observations within the requested bounds and limit are returned."
+        ]
+      }
+    },
+    {
+      "label": "activity",
+      "isError": false,
+      "data": {
+        "schema_version": "1.0",
+        "status": "ok",
+        "data_source": "current_official",
+        "series_id": "activity.emae.seasonally_adjusted.index",
+        "frequency": "monthly",
+        "coverage": "Argentina, national",
+        "seasonal_adjustment": "seasonally_adjusted",
+        "unit": "index (2004=100)",
+        "calculated": false,
+        "observations": [
+          {
+            "reference_period": "2025-09",
+            "value": 153.18947101771843,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "periodo": "202509",
+              "anio": 2025,
+              "mes": 9,
+              "valor": 153.18947101771843,
+              "valor_null": null,
+              "observaciones": null,
+              "tipo_de_indicador": "Índice base 2004=100",
+              "tipo_de_indicador_descripcion": "Índice serie desestacionalizada"
+            }
+          },
+          {
+            "reference_period": "2025-10",
+            "value": 153.2419815455886,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "periodo": "202510",
+              "anio": 2025,
+              "mes": 10,
+              "valor": 153.2419815455886,
+              "valor_null": null,
+              "observaciones": null,
+              "tipo_de_indicador": "Índice base 2004=100",
+              "tipo_de_indicador_descripcion": "Índice serie desestacionalizada"
+            }
+          },
+          {
+            "reference_period": "2025-11",
+            "value": 152.96247529242612,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "periodo": "202511",
+              "anio": 2025,
+              "mes": 11,
+              "valor": 152.96247529242612,
+              "valor_null": null,
+              "observaciones": null,
+              "tipo_de_indicador": "Índice base 2004=100",
+              "tipo_de_indicador_descripcion": "Índice serie desestacionalizada"
+            }
+          },
+          {
+            "reference_period": "2025-12",
+            "value": 156.00030972813954,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "periodo": "202512",
+              "anio": 2025,
+              "mes": 12,
+              "valor": 156.00030972813954,
+              "valor_null": null,
+              "observaciones": null,
+              "tipo_de_indicador": "Índice base 2004=100",
+              "tipo_de_indicador_descripcion": "Índice serie desestacionalizada"
+            }
+          },
+          {
+            "reference_period": "2026-01",
+            "value": 155.81632390581464,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "periodo": "202601",
+              "anio": 2026,
+              "mes": 1,
+              "valor": 155.81632390581464,
+              "valor_null": null,
+              "observaciones": null,
+              "tipo_de_indicador": "Índice base 2004=100",
+              "tipo_de_indicador_descripcion": "Índice serie desestacionalizada"
+            }
+          },
+          {
+            "reference_period": "2026-02",
+            "value": 152.71084849769787,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "periodo": "202602",
+              "anio": 2026,
+              "mes": 2,
+              "valor": 152.71084849769787,
+              "valor_null": null,
+              "observaciones": null,
+              "tipo_de_indicador": "Índice base 2004=100",
+              "tipo_de_indicador_descripcion": "Índice serie desestacionalizada"
+            }
+          },
+          {
+            "reference_period": "2026-03",
+            "value": 156.7783124397283,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "periodo": "202603",
+              "anio": 2026,
+              "mes": 3,
+              "valor": 156.7783124397283,
+              "valor_null": null,
+              "observaciones": null,
+              "tipo_de_indicador": "Índice base 2004=100",
+              "tipo_de_indicador_descripcion": "Índice serie desestacionalizada"
+            }
+          },
+          {
+            "reference_period": "2026-04",
+            "value": 154.65199375065603,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "periodo": "202604",
+              "anio": 2026,
+              "mes": 4,
+              "valor": 154.65199375065603,
+              "valor_null": null,
+              "observaciones": null,
+              "tipo_de_indicador": "Índice base 2004=100",
+              "tipo_de_indicador_descripcion": "Índice serie desestacionalizada"
+            }
+          },
+          {
+            "reference_period": "2026-05",
+            "value": 153.66017117203242,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "periodo": "202605",
+              "anio": 2026,
+              "mes": 5,
+              "valor": 153.66017117203242,
+              "valor_null": null,
+              "observaciones": null,
+              "tipo_de_indicador": "Índice base 2004=100",
+              "tipo_de_indicador_descripcion": "Índice serie desestacionalizada"
+            }
+          },
+          {
+            "reference_period": "2026-06",
+            "value": 154.11726382558973,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "periodo": "202606",
+              "anio": 2026,
+              "mes": 6,
+              "valor": 154.11726382558973,
+              "valor_null": null,
+              "observaciones": null,
+              "tipo_de_indicador": "Índice base 2004=100",
+              "tipo_de_indicador_descripcion": "Índice serie desestacionalizada"
+            }
+          },
+          {
+            "reference_period": "2026-07",
+            "value": 149.79189486575558,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "periodo": "202607",
+              "anio": 2026,
+              "mes": 7,
+              "valor": 149.79189486575558,
+              "valor_null": null,
+              "observaciones": null,
+              "tipo_de_indicador": "Índice base 2004=100",
+              "tipo_de_indicador_descripcion": "Índice serie desestacionalizada"
+            }
+          },
+          {
+            "reference_period": "2026-08",
+            "value": 149.8907351965427,
+            "statistical_flag": null,
+            "observations": null,
+            "raw": {
+              "periodo": "202608",
+              "anio": 2026,
+              "mes": 8,
+              "valor": 149.8907351965427,
+              "valor_null": null,
+              "observaciones": null,
+              "tipo_de_indicador": "Índice base 2004=100",
+              "tipo_de_indicador_descripcion": "Índice serie desestacionalizada"
+            }
+          }
+        ],
+        "returned_order": "ascending",
+        "requested_start": null,
+        "requested_end": null,
+        "truncated": true,
+        "sources": [
+          {
+            "url": "https://api.indec.gob.ar/v1/estimador-mensual-de-actividad-economica-nivel-general?order=periodo.desc%2Ctipo_de_indicador_descripcion%2Canio%2Cmes%2Ctipo_de_indicador&offset=0&tipo_de_indicador=eq.%C3%8Dndice+base+2004%3D100&tipo_de_indicador_descripcion=eq.%C3%8Dndice+serie+desestacionalizada&limit=13",
+            "retrieved_at": "2026-11-02T23:30:24.199Z"
+          }
+        ],
+        "publication_date": null,
+        "methodology_source": "https://www.indec.gob.ar/ftp/cuadros/economia/metodologia_emae_ago_16.pdf",
+        "cache": {
+          "hit": false,
+          "expires_at": "2026-11-03T00:30:24.199Z"
+        },
+        "warnings": [
+          "Publication date is not supplied by this API. Current observations can be revised.",
+          "Only the most recent observations within the requested bounds and limit are returned."
+        ]
+      }
+    },
+    {
+      "label": "wages",
+      "isError": true,
+      "data": {
+        "status": "error",
+        "error": {
+          "code": "UPSTREAM_NOT_FOUND",
+          "message": "The dataset endpoint documented in the supplied INDEC specification is unavailable (HTTP 404).",
+          "retryable": false
+        },
+        "error_code": "INVALID_ARGUMENT"
+      }
+    },
+    {
+      "label": "comparison",
+      "isError": true,
+      "data": {
+        "status": "error",
+        "error": {
+          "code": "UPSTREAM_NOT_FOUND",
+          "message": "The dataset endpoint documented in the supplied INDEC specification is unavailable (HTTP 404).",
+          "retryable": false
+        },
+        "error_code": "INVALID_ARGUMENT"
+      }
+    }
+  ]
+}
+
