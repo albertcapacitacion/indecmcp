@@ -18,6 +18,8 @@
     "typecheck": "tsc --noEmit",
     "test": "node --import tsx --test tests/*.test.ts",
     "test:live": "node --env-file-if-exists=.env --import tsx scripts/live.ts",
+    "test:e2e": "node --env-file-if-exists=.env --import tsx scripts/e2e.ts",
+    "test:e2e:hosted": "node --import tsx scripts/e2e.ts --hosted-results",
     "verify:selector": "node --env-file-if-exists=.env --import tsx scripts/verify-selector.ts",
     "db:generate": "drizzle-kit generate",
     "docs:mapping": "node scripts/api-mapping.mjs",

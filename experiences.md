@@ -1,5 +1,11 @@
 # Project experiences
 
+## 2026-11-03 — repeatable end-to-end checks
+
+- A shared nine-call E2E suite now verifies all six tools through real local MCP HTTP and through fresh native hosted calls. Its assertions independently recalculate real wage growth, check reference periods, preserve cache retrieval times and reject substituted missing periods. Both paths passed against real INDEC data.
+- A hosted recording validator is explicitly an audit step, not an authenticated caller. The actual hosted calls use Sites' installed plugin connection; replaying yesterday's JSON cannot establish a new network run. No service token, forged identity or exported client credentials were introduced to automate around this boundary.
+- Negative tests also corrupt otherwise valid unit fixtures to ensure calculation, alignment, missing-case and metadata mistakes cannot quietly produce a green validator result. Fresh run artifacts are written under ignored outputs/e2e/ with unique filenames.
+
 ## 2026-11-03 — wage endpoint recovery and contract drift
 
 - A standalone console curl check found the documented wage endpoint reachable, despite earlier authenticated 404s. Minimal and exact application queries both succeeded. The earlier response was evidence of an observation at that time, not a permanent endpoint state; rechecking the simplest request prevented treating it as a lasting blocker.

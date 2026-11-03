@@ -31,12 +31,15 @@ The local endpoint is `http://127.0.0.1:8787/mcp`. The development adapter binds
 npm run verify:selector
 npm run test:live
 npm run test:live -- --record
+npm run test:e2e -- --record
 npm run build
 npm run docs:mapping
 npm run package:plugin -- --draft
 ```
 
 `npm test` uses synthetic fixtures, without network access. `test:live` uses a real SDK client over local HTTP and real INDEC requests. Recording writes a new, uniquely named sample to `docs/examples/`; it never overwrites prior recordings or claims they are newspaper publication archives.
+
+`test:e2e` runs nine real HTTP MCP calls with independent assertions for all six tools, same-period calculations, metadata, cache and missing exact periods. It uses real INDEC data and the local development identity/state. [E2E instructions](docs/E2E.md) also cover fresh hosted calls through the installed plugin and deterministic validation with `test:e2e:hosted`; validating a saved recording alone is not a new network run. E2E recordings are uniquely named under ignored `outputs/e2e/`.
 
 ## Tools
 
