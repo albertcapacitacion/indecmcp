@@ -24,8 +24,49 @@ const activity = (description: string, adjustment: SeriesDefinition["adjustment"
   methodology: "https://www.indec.gob.ar/ftp/cuadros/economia/metodologia_emae_ago_16.pdf", schema: z.looseObject({ ...monthly, tipo_de_indicador: z.string(), tipo_de_indicador_descripcion: z.string() })
 });
 
-// Closed catalog. Every filter value above was verified against real API rows on 2026-11-02.
+export const wageSectors = {
+  total: { nivel: "0", codigo: "0", descripcion: "Nivel general" },
+  private_registered: { nivel: "2", codigo: "110", descripcion: "Sector privado registrado" },
+  public: { nivel: "2", codigo: "120", descripcion: "Sector público" },
+  private_unregistered: { nivel: "1", codigo: "200", descripcion: "Total no registrado" }
+} as const;
+export type WageSector = keyof typeof wageSectors;
+export const wageMeasures = {
+  index: { type: "Indice", description: "Nivel del período, base octubre 2016=100", unit: "Unidad" },
+  monthly: { type: "v_m", description: "Variación porcentual respecto del período anterior", unit: "Porcentaje" },
+  year_over_year: { type: "v_ia", description: "Variación porcentual respecto del mismo período del año anterior", unit: "Porcentaje" },
+  year_to_date: { type: "v_acum", description: "Variación porcentual acumulada desde diciembre del año anterior", unit: "Porcentaje" }
+} as const;
+// Current docs and authenticated rows verified 2026-11-03: valor is number|null,
+// unlike string|null in the retained original supplied OpenAPI file.
+function wage(sector: WageSector, measure: keyof typeof wageMeasures): SeriesDefinition {
+  const metadata = wageMeasures[measure];
+  return {
+    dataset: "indice_salarios", filters: { clasificador: "IS 2001", ...wageSectors[sector], indicador: "Índice de salarios (IS)", tipo_de_indicador: metadata.type, tipo_de_indicador_descripcion: metadata.description, unidad_de_medida: metadata.unit },
+    order: "periodo.desc,clasificador,nivel,codigo,descripcion,anio,mes,indicador,tipo_de_indicador,tipo_de_indicador_descripcion,unidad_de_medida",
+    frequency: "monthly", coverage: "Argentina, national; selected wage sector", adjustment: "not_applicable", unit: measure === "index" ? "index (October 2016=100)" : "percent", valueField: "valor",
+    methodology: "https://www.indec.gob.ar/ftp/cuadros/sociedad/cvs_metodologia.pdf", schema: ipcRowSchema.omit({ region: true })
+  };
+}
+
+// Closed catalog. Non-wage filters verified against real API rows 2026-11-02.
 export const catalog = {
+  "wages.total.index": wage("total", "index"),
+  "wages.total.monthly": wage("total", "monthly"),
+  "wages.total.year_over_year": wage("total", "year_over_year"),
+  "wages.total.year_to_date": wage("total", "year_to_date"),
+  "wages.private_registered.index": wage("private_registered", "index"),
+  "wages.private_registered.monthly": wage("private_registered", "monthly"),
+  "wages.private_registered.year_over_year": wage("private_registered", "year_over_year"),
+  "wages.private_registered.year_to_date": wage("private_registered", "year_to_date"),
+  "wages.public.index": wage("public", "index"),
+  "wages.public.monthly": wage("public", "monthly"),
+  "wages.public.year_over_year": wage("public", "year_over_year"),
+  "wages.public.year_to_date": wage("public", "year_to_date"),
+  "wages.private_unregistered.index": wage("private_unregistered", "index"),
+  "wages.private_unregistered.monthly": wage("private_unregistered", "monthly"),
+  "wages.private_unregistered.year_over_year": wage("private_unregistered", "year_over_year"),
+  "wages.private_unregistered.year_to_date": wage("private_unregistered", "year_to_date"),
   "ipc.national.headline.monthly_change": ipc("v_m", "Variación porcentual respecto del período anterior", "percent"),
   "ipc.national.headline.year_over_year": ipc("v_ia", "Variación porcentual respecto del mismo período del año anterior", "percent"),
   "ipc.national.headline.year_to_date": ipc("v_acum", "Variación porcentual acumulada desde diciembre del año anterior", "percent"),

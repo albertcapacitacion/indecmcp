@@ -25,7 +25,7 @@ Logo requirements: square PNG/JPEG/WebP/SVG, at least 48×48, maximum 5 MiB per 
 
 ## Review evidence
 
-Provide exactly five positive and three negative initial MCP review cases, a reviewer-accessible video walkthrough, release notes, and any secure reviewer account required by the portal. Cases in `plugin/review-cases.json` describe reproducible expectations rather than inventing fixed future values. Initial positive coverage uses verified tools; the unavailable wage tools are disclosed as incomplete and remain a release blocker for the requested full V0.
+Provide exactly five positive and three negative initial MCP review cases, a reviewer-accessible video walkthrough, release notes, and any secure reviewer account required by the portal. Cases in `plugin/review-cases.json` describe reproducible expectations rather than inventing fixed future values. Positive coverage includes wage/inflation period alignment; negative coverage checks exact unavailable periods without invented or substituted data. All six tools have real local MCP integration evidence; hosted wage verification is tracked separately in release-status.json.
 
 1. Upload the ZIP with its MCP connection declared from the start.
 2. Complete domain verification and authentication, scan all tools, and fix required findings.

@@ -20,7 +20,9 @@ export function percentChange(start: number | string | null, end: number | strin
 export function realWageChange(wagePercent: number | null, inflationPercent: number | null): number | null {
   if (wagePercent === null || inflationPercent === null) return null;
   if (!Number.isFinite(wagePercent) || !Number.isFinite(inflationPercent) || inflationPercent <= -100) throw new ServiceError("INVALID_INDEX", "The real wage ratio is undefined.");
-  return ((1 + wagePercent / 100) / (1 + inflationPercent / 100) - 1) * 100;
+  const result = ((1 + wagePercent / 100) / (1 + inflationPercent / 100) - 1) * 100;
+  if (!Number.isFinite(result)) throw new ServiceError("INVALID_INDEX", "The real wage ratio exceeds numeric bounds.");
+  return result;
 }
 export function shiftMonth(period: string, months: number): string {
   const [year, month] = period.split("-").map(Number);

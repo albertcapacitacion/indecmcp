@@ -4,7 +4,7 @@ import { IndecClient } from "./indec.js";
 import { safeError, ServiceError } from "./errors.js";
 import type { State } from "./state.js";
 import { seriesInput, seriesOutput, historyInput, inflationHistory, getSeries, basketInput, basicBasket } from "./series.js";
-import { wageInput, wageGrowth, unavailableOutput } from "./wages.js";
+import { wageInput, wageGrowth, wageOutput, comparisonOutput, compareWagesInflation } from "./wages.js";
 
 export interface Dependencies { client: IndecClient; state: State; userId: string | null; }
 export function createServer(deps: Dependencies) {
@@ -44,19 +44,19 @@ export function createServer(deps: Dependencies) {
   }, async input => guarded("get_basic_basket", () => basicBasket(deps.client, deps.state, input)));
   server.registerTool("get_series", {
     title: "Retrieve a reviewed official statistical series",
-    description: "Retrieve a fixed catalog of national IPC, Gran Buenos Aires per-adult baskets, national EMAE original/seasonally-adjusted/trend-cycle indices, or EPH unemployment for 31 urban agglomerations. Series IDs are enumerated in the input schema. No arbitrary endpoint, URL, raw query, SQL, or operation execution is accepted. Use YYYY-MM for monthly and YYYY-Qn for quarterly series. Default 24, maximum 240 latest observations; source, nulls, flags, coverage, adjustment and truncation are explicit.",
+    description: "Retrieve a fixed catalog of national IPC, wage indices and published rates by sector, Gran Buenos Aires per-adult baskets, national EMAE original/seasonally-adjusted/trend-cycle indices, or EPH unemployment for 31 urban agglomerations. Series IDs are enumerated in the input schema. No arbitrary endpoint, URL, raw query, SQL, or operation execution is accepted. Use YYYY-MM for monthly and YYYY-Qn for quarterly series. Default 24, maximum 240 latest observations; source, nulls, flags, coverage, adjustment and truncation are explicit.",
     inputSchema: seriesInput, outputSchema: seriesOutput, annotations
   }, async input => guarded("get_series", () => getSeries(deps.client, deps.state, input)));
   server.registerTool("get_wage_growth", {
-    title: "Wage growth (upstream unavailable)",
-    description: "Request wage growth by sector and monthly/year-over-year/year-to-date window. Currently returns an explicit error: the indice_salarios endpoint in the supplied INDEC OpenAPI specification returned HTTP 404 in live verification. No wage series mapping is verified. Does not return estimated, fabricated, or substitute data. Reverification is required before enabling numerical results.",
-    inputSchema: wageInput, outputSchema: unavailableOutput, annotations
-  }, async () => guarded("get_wage_growth", () => wageGrowth(deps.client, deps.state)));
+    title: "Official wage growth",
+    description: "Retrieve the published monthly, year-over-year or year-to-date wage percentage change for total, private registered, public or private unregistered wages. Optional end_period is exact YYYY-MM; otherwise use the latest available reference month. Preserves nulls, flags, source/retrieval metadata and sector. Rates are official measures, not sums of monthly changes; baseline_period describes the official window.",
+    inputSchema: wageInput, outputSchema: wageOutput, annotations
+  }, async input => guarded("get_wage_growth", () => wageGrowth(deps.client, deps.state, input)));
   server.registerTool("compare_wages_inflation", {
-    title: "Compare wages and inflation (upstream unavailable)",
-    description: "Request a wage/inflation comparison using identical reference periods. Currently returns the explicit INDEC wage endpoint availability error; no comparison is calculated without verified wage observations. Intended real change is ((1+wage_growth/100)/(1+inflation/100)-1)*100; a percentage-point growth gap is a distinct measure. No unavailable data is substituted.",
-    inputSchema: wageInput, outputSchema: unavailableOutput, annotations
-  }, async () => guarded("compare_wages_inflation", () => wageGrowth(deps.client, deps.state)));
+    title: "Compare wages and national inflation",
+    description: "Compare published wage and national IPC rates for the identical monthly, year-over-year or year-to-date window. Optional end_period is exact YYYY-MM. Otherwise use the earlier of their latest reference months and require exact observations at that cutoff; do not skip nulls or search backwards. Return calculated real wage change separately from the percentage-point gap, with both official inputs, sectors, coverage, flags, sources and original retrieval/cache timestamps. Missing data returns unavailable.",
+    inputSchema: wageInput, outputSchema: comparisonOutput, annotations
+  }, async input => guarded("compare_wages_inflation", () => compareWagesInflation(deps.client, deps.state, input)));
   return server;
 }
 

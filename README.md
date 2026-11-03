@@ -6,7 +6,7 @@ Public name: **INDEC MCP**. English subtitle: **Official Argentina statistics**.
 
 ## Status
 
-The first national monthly inflation slice has passed an actual HTTP MCP client call against authenticated INDEC data. All six V0 tool names are exposed. Inflation, baskets, activity and unemployment have live verified mappings. **Wage growth and wage/inflation comparison are blocked:** `/indice_salarios` from the supplied specification returns HTTP 404. Those tools return explicit errors; they do not produce numeric results or use another source. This is not a claim of a complete V0 or public directory approval.
+All six V0 tools have passed actual HTTP MCP client calls against authenticated INDEC data. Inflation, wages, baskets, activity and unemployment have live verified mappings. The wage endpoint returned 404 during earlier checks but became reachable on 2026-11-03; all 16 reviewed wage series now return verified data. The current wage schema differs from the original supplied specification: see [wage verification](docs/WAGES.md). Public directory approval remains pending.
 
 The private Sites deployment and native plugin creation/installation are verified. Real authenticated calls through the installed INDEC MCP plugin return official inflation, basket, unemployment and activity observations. Hosted cache hits retain the original retrieval time, and an unavailable exact month stays unavailable. See [deployment verification](docs/DEPLOYMENT.md) and the native Sites recording under `docs/examples/`.
 
@@ -44,8 +44,8 @@ npm run package:plugin -- --draft
 | --- | --- | --- |
 | get_latest_inflation | `{}` | Latest available national monthly headline IPC percentage change |
 | get_inflation_history | Optional start_period/end_period (YYYY-MM), measure, limit | Published monthly, annual, year-to-date measures or index levels |
-| get_wage_growth | sector, end_period, window | Explicit upstream-unavailable error pending verified wage endpoint |
-| compare_wages_inflation | sector, end_period, window | Explicit upstream-unavailable error; never compares unaligned or invented observations |
+| get_wage_growth | sector, end_period, window | Exact official monthly, annual or accumulated wage growth; optional exact month |
+| compare_wages_inflation | sector, end_period, window | Same-period official inputs; calculated real change and a separate percentage-point gap |
 | get_basic_basket | basket: cba/cbt; optional period | GBA cost in ARS **per adult equivalent**, not a national family cost |
 | get_series | Enumerated series_id, optional period bounds, limit | Fixed IPC/basket/EMAE/unemployment catalog, maximum 240 observations |
 
@@ -57,7 +57,7 @@ Every tool publishes JSON input/output schemas and read-only, destructive and op
 - Original monthly/quarterly frequencies, coverage and adjustment are explicit. EPH covers 31 urban agglomerations, not the entire population.
 - Official `v_acum` and `v_ia` rates are returned directly. Accumulation is never a sum of monthly percentages. Calculations from rounded levels must be labeled as calculated and may differ from official releases.
 - Nulls, provisional notes and extra `*_null` signs survive validation. Missing exact periods return unavailable; no older month is silently substituted.
-- Numerical helpers test index growth `(end/start-1)*100` and real wage growth `((1+w/100)/(1+p/100)-1)*100`. Percentage-point differences are separate. Wage helpers are not enabled as live numerical tools until mappings are verified.
+- Wage growth uses official `v_m`, `v_ia` or `v_acum` rates directly. Comparisons use the identical window and reference month. Without an explicit month, the earlier of the two latest reference months is used as an exact cutoff; a null or missing value returns unavailable without a backward search. Real wage growth is calculated as `((1+w/100)/(1+p/100)-1)*100`; the growth-rate gap is separately labeled in percentage points. Inputs can have different retrieval times, each preserved; no atomic historical vintage is implied.
 - No historical publication vintage can be reconstructed from this operational cache.
 
 ## Caching and safeguards

@@ -13,7 +13,7 @@
       "interface": {
         "displayName": "INDEC MCP",
         "shortDescription": "Official Argentina statistics",
-        "longDescription": "Retrieve official Argentine inflation, Gran Buenos Aires basic basket costs, national economic activity and EPH unemployment statistics with reference periods, coverage, statistical flags and source links. Independent service; not an INDEC product or endorsement. Wage growth and wage/inflation comparison are currently unavailable because the documented INDEC wage endpoint returns HTTP 404. Historical publication vintages are not reconstructed.",
+        "longDescription": "Retrieve official Argentine inflation, wage growth, Gran Buenos Aires basic basket costs, national economic activity and EPH unemployment statistics with reference periods, coverage, statistical flags and source links. Compare wages with national inflation for matching periods, distinguishing calculated real wage change from percentage-point differences. Independent service; not an INDEC product or endorsement. Missing data are not substituted and historical publication vintages are not reconstructed.",
         "developerName": "PUBLISHER_NAME_PENDING",
         "category": "Productivity",
         "capabilities": ["Read official statistics", "Inspect statistical series"],
@@ -27,8 +27,8 @@
       },
       "publication": {
         "countries": [],
-        "release_notes": "Initial review draft. Inflation, baskets, EMAE and unemployment have live verified mappings. Wage tools remain unavailable.",
-        "translations": { "es-AR": { "subtitle": "Estadísticas de Argentina", "description": "Estadísticas oficiales de Argentina, consultables desde ChatGPT y Codex. Servicio independiente basado en datos oficiales del INDEC, con períodos de referencia, cobertura y fuentes. Los salarios y su comparación con la inflación están temporalmente indisponibles porque el endpoint documentado devuelve HTTP 404." } }
+        "release_notes": "Review draft with all six V0 tools and verified inflation, wage, basket, EMAE and unemployment mappings. Wage comparisons align reference periods and distinguish real growth from percentage-point gaps.",
+        "translations": { "es-AR": { "subtitle": "Estadísticas de Argentina", "description": "Estadísticas oficiales de Argentina, consultables desde ChatGPT y Codex. Servicio independiente basado en datos oficiales del INDEC, con períodos de referencia, cobertura y fuentes. Incluye salarios y su comparación con la inflación para períodos coincidentes, distinguiendo el crecimiento real de la diferencia en puntos porcentuales. No sustituye datos faltantes ni reconstruye publicaciones históricas." } }
       }
     }
   }

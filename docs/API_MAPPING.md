@@ -576,13 +576,17 @@ Query/header parameters: select, order, limit, offset, Prefer, Anio, Mes, Period
 
 ## V0 runtime mappings
 
-| Tool | Endpoint | Live state on 2026-11-02 |
+| Tool | Endpoint | Verified state through 2026-11-03 |
 | --- | --- | --- |
 | get_latest_inflation | /ipc_nacional | Verified national headline v_m |
 | get_inflation_history | /ipc_nacional | Verified national Indice, v_m, v_ia, v_acum |
-| get_wage_growth | /indice_salarios | HTTP 404; numerical results disabled |
-| compare_wages_inflation | /indice_salarios and /ipc_nacional | Blocked by wage endpoint |
+| get_wage_growth | /indice_salarios | Verified four sectors and official v_m, v_ia, v_acum |
+| compare_wages_inflation | /indice_salarios and /ipc_nacional | Verified same-period official rates and calculated real change |
 | get_basic_basket | /valorizacion_canastas_cba_cbt | Verified CBA/CBT, GBA, per adult equivalent |
-| get_series | Closed catalog in src/catalog.ts | IPC, baskets, EMAE and EPH unemployment verified |
+| get_series | Closed catalog in src/catalog.ts | IPC, wages, baskets, EMAE and EPH unemployment verified |
 
 The presence of an endpoint in this document does not expose it through MCP. Only the closed runtime catalog is callable. Publication timestamps and archival vintages are not present in the relevant observation schemas.
+
+### Current wage schema supplement
+
+The tables above are derived from the original supplied specification, retained unchanged. The rendered official documentation inspected on 2026-11-03 and live JSON observations now define wage valor as number or null, rather than string or null. The wage adapter validates the current numeric contract. See [WAGES.md](WAGES.md) for the exact sector/measure mappings, source documentation and real MCP evidence. Earlier observed 404s no longer reproduce and do not describe current availability.

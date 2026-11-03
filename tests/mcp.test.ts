@@ -6,12 +6,18 @@ import { MemoryState } from "../src/state.js";
 import { IndecClient } from "../src/indec.js";
 import { NATIONAL_MONTHLY } from "../src/inflation.js";
 import { latestOutput } from "../src/inflation.js";
-import { unavailableOutput } from "../src/wages.js";
+import { unavailableOutput, wageOutput, comparisonOutput } from "../src/wages.js";
 
 const mockRow = { ...NATIONAL_MONTHLY, periodo: "202609", anio: 2026, mes: 9, valor: 1.9, valor_null: null, observaciones: null };
-async function connection(userId: string | null = "synthetic-client", mode: "auto" | "legacy" = "auto", state = new MemoryState(), injectHost = true) {
+async function connection(userId: string | null = "synthetic-client", mode: "auto" | "legacy" = "auto", state = new MemoryState(), injectHost = true, wagesAvailable = false) {
   const client = new Client({ name: "synthetic-integration-test", version: "1" }, { versionNegotiation: { mode } });
-  const upstream = new IndecClient("SYNTHETIC_SECRET", async url => String(url).includes("indice_salarios") ? new Response("SYNTHETIC_SECRET", { status: 404 }) : Response.json([mockRow], { headers: { "content-range": "0-0/1" } }));
+  const upstream = new IndecClient("SYNTHETIC_SECRET", async input => {
+    const url = new URL(String(input)); const wage = url.pathname.endsWith("indice_salarios");
+    if (!wagesAvailable) return wage ? new Response("SYNTHETIC_SECRET", { status: 404 }) : Response.json([mockRow], { headers: { "content-range": "0-0/1" } });
+    const filters = Object.fromEntries([...url.searchParams].filter(([, value]) => value.startsWith("eq.")).map(([key, value]) => [key, value.slice(3)]));
+    const period = url.searchParams.getAll("periodo").find(value => value.startsWith("gte."))?.slice(4) ?? "202608";
+    return Response.json([{ ...filters, periodo: period, anio: Number(period.slice(0, 4)), mes: Number(period.slice(4)), valor: wage ? 50 : 25, valor_null: "*", observaciones: "Dato provisorio" }], { headers: { "content-range": "0-0/1" } });
+  });
   const transport = new StreamableHTTPClientTransport(new URL("http://127.0.0.1/mcp"), { fetch: async (url, init) => { const request = new Request(url, init); if (injectHost) request.headers.set("host", "127.0.0.1"); return handleRequest(request, { client: upstream, state, userId }, true); } });
   await client.connect(transport); await client.listTools(); return client;
 }
@@ -33,6 +39,16 @@ test("strict tool input rejects unknown properties", async () => {
 test("wage 404 and comparison return explicit errors", async () => {
   const client = await connection(); try {
     for (const name of ["get_wage_growth", "compare_wages_inflation"]) { const result = await client.callTool({ name, arguments: {} }); assert.equal(result.isError, true); assert.equal(unavailableOutput.parse(result.structuredContent).error.code, "UPSTREAM_NOT_FOUND"); }
+  } finally { await client.close(); }
+});
+for (const mode of ["auto", "legacy"] as const) test(`wage growth and comparison return structured success through ${mode} MCP`, async () => {
+  const client = await connection("synthetic-wage-client", mode, new MemoryState(), true, true);
+  try {
+    const wage = await client.callTool({ name: "get_wage_growth", arguments: { sector: "public", window: "year_to_date", end_period: "2026-08" } });
+    assert(!wage.isError); const published = wageOutput.parse(wage.structuredContent); assert.equal(published.sector, "public"); assert.equal(published.value, 50); assert.equal(published.baseline_period, "2025-12");
+    const comparison = await client.callTool({ name: "compare_wages_inflation", arguments: { sector: "public", window: "year_to_date", end_period: "2026-08" } });
+    assert(!comparison.isError); const result = comparisonOutput.parse(comparison.structuredContent); assert.equal(result.reference_period, "2026-08"); assert(Math.abs(result.real_wage_change_percent! - 20) < 1e-10);
+    assert(!JSON.stringify(comparison).includes("SYNTHETIC_SECRET"));
   } finally { await client.close(); }
 });
 test("client rate limits remain enforced on cached calls", async () => {
