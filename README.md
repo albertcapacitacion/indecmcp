@@ -8,11 +8,64 @@
 
 **Official Argentine statistics, in your chat.** Ask about inflation, wages, basic baskets, unemployment and economic activity. Get figures with reference periods and official sources, then turn them into charts, comparisons or downloadable files.
 
-**v0.1.0 · Private access tested; public directory approval pending.** [Access and deployment status →](docs/DEPLOYMENT.md)
+**v0.1.0**
+
+## Install and run locally
+
+Run the INDEC MCP server locally from this repository.
+
+**Requirements:** Git, Node.js 22.13+ (including npm), and an INDEC API token. AI client connection requirements are listed in step 4.
+
+### 1. Clone the repository and install dependencies
+
+Open PowerShell in a projects folder outside OneDrive or Google Drive, then run:
+
+```powershell
+git clone https://github.com/albertcapacitacion/indecmcp.git
+cd indecmcp
+npm ci --cache .local/npm-cache
+Copy-Item .env.example .env
+```
+
+These commands are for a fresh clone. If you already have a `.env` file, edit it instead of copying over it.
+
+### 2. Get your INDEC API token
+
+**Get the key from the official INDEC API portal: [https://api.indec.gob.ar/](https://api.indec.gob.ar/).** Register, verify your email, then generate a JWT token from your profile settings.
+
+Open the `.env` file in the cloned repository and set `INDEC_API_TOKEN` to your token:
+
+```dotenv
+INDEC_API_TOKEN=your_indec_token_here
+```
+
+Replace the placeholder with your actual token. This is an **INDEC token**, separate from your ChatGPT or Claude account. Keep it in the gitignored `.env` file; do not paste it into chat, commit it, or put it in your AI client's configuration.
+
+### 3. Start the server
+
+```powershell
+npm run dev
+```
+
+The server runs at `http://127.0.0.1:8787/mcp`. Keep this terminal open while using it; press **Ctrl+C** to stop it. This local development server listens only on your computer.
+
+### 4. Connect an AI client
+
+Configure an MCP connection in the chosen AI client:
+
+| Client | What local use requires |
+| --- | --- |
+| **Codex running locally** | Connect to `http://127.0.0.1:8787/mcp` using the repository's [example MCP configuration](examples/codex.toml). See the [official MCP setup instructions](https://learn.chatgpt.com/docs/extend/mcp). |
+| **ChatGPT in a browser** | Cannot connect directly to your computer's `127.0.0.1` address. A connection such as [OpenAI's Secure MCP Tunnel](https://developers.openai.com/api/docs/guides/secure-mcp-tunnels) requires additional setup, a runtime API key, and the relevant account/workspace permissions. This repository does not include a verified ChatGPT tunnel setup. |
+| **Claude Desktop** | [Supports local MCP servers](https://support.claude.com/en/articles/10949351-getting-started-with-local-mcp-servers-on-claude-desktop), but this repository does not yet include a verified Claude connection setup or an installable desktop extension. Cloning alone does not connect it to Claude. |
+
+Use your account for the chosen AI client. A ChatGPT subscription does not provide Claude access. The statistics server runs locally, but it still needs internet access to INDEC; the AI model runs through the chosen provider.
+
+See [setup and development](docs/DEVELOPMENT.md) for technical details and checks.
 
 ## Try it in ChatGPT
 
-Once connected, select **INDEC MCP** from the apps menu or type `@INDEC` and choose it. Copy a prompt below and replace the amounts and dates with your own.
+After connecting INDEC MCP to ChatGPT, copy a prompt below and replace the amounts and dates with your own.
 
 ### Calculate purchasing power
 
