@@ -83,6 +83,8 @@ After connecting INDEC MCP to ChatGPT, copy a prompt below and replace the amoun
 
 Real ChatGPT examples tested on November 3, 2026. Charts, interactive controls and file exports depend on your chat's capabilities. If controls are unavailable, ask for a table or Excel file. Screenshots use the original response language.
 
+Interested in creating with AI? Reach out to me: albertcapacitaciondigital@gmail.com
+
 ## More prompts to copy
 
 | Want to… | Ask… |

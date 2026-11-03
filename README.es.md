@@ -30,6 +30,8 @@ Una vez conectado, seleccioná **INDEC MCP** desde el menú de apps o escribí `
 
 Ejemplos reales probados en ChatGPT el 3 de noviembre de 2026. Los gráficos, controles interactivos y archivos descargables dependen de las funciones de tu chat. Si no hay controles disponibles, pedí una tabla o un Excel. Las capturas conservan el idioma de la respuesta original.
 
+¿Te interesa crear con IA? Contactame: albertcapacitaciondigital@gmail.com
+
 ## Más consultas para copiar
 
 | Para… | Preguntá… |
